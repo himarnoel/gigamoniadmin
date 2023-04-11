@@ -21,10 +21,12 @@ const Home = (props) => {
         </div>
       </div>
       <div className="flex mt-10 justify-around w-[30rem]">
-        <p className="text-sm font-semibold ">Transaction activities</p>
-        <p className="ss">This Week</p>
-        <p className="ss">This Month</p>
-        <p className="sd">This Year</p>
+        <p className="text-sm font-semibold  cursor-pointer">
+          Transaction activities
+        </p>
+        <p className="ss cursor-pointer">This Week</p>
+        <p className="ss cursor-pointer">This Month</p>
+        <p className="sd cursor-pointer">This Year</p>
       </div>
       <div className="w-full bg-[#DAF2F1] h-[25rem] mt-10 rounded-2xl "></div>
       <div className="flex mt-10 w-full h-[1rem]"></div>
