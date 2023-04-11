@@ -7,12 +7,9 @@ const SideNav = () => {
   const activeLink = "mt-5 cursor-pointer text-[#87ACA3] text-sm";
   const normalLink = "mt-5 cursor-pointer text-[#F8F8FF] text-base";
   return (
-    <div className="font-poppins  flex flex-col   2xl:pl-[10rem]  text-[#F8F8FF] xl:pl-[5rem] lg:pl-10 mt-20">
+    <div className="font-poppins  flex flex-col   2xl:pl-[10rem]  text-[#F8F8FF] xl:pl-[5rem] lg:pl-10 mt-32">
       {SidebarData.map((data, i) => (
-        <div
-          key={i}
-          className="mt-12 "
-        >
+        <div key={i} className="mt-12 ">
           <NavLink
             to={data.path}
             className={({ isActive }) => (isActive ? activeLink : normalLink)}

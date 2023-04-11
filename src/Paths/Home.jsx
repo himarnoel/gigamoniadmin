@@ -20,6 +20,13 @@ const Home = (props) => {
           <p className="mt-5 text-4xl font-semibold">0</p>
         </div>
       </div>
+      <div className="flex">
+        <p className="ss">Transaction activities</p>
+        <p className="ss">This Week</p>
+        <p className="ss">This Month</p>
+        <p className="sd">This Year</p>
+      </div>
+      <div className="w-full bg-[#DAF2F1] h-[25rem] mt-10 rounded-2xl"></div>
     </div>
   );
 };
