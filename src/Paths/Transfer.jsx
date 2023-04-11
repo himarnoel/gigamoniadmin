@@ -16,7 +16,7 @@ const Transfer = () => {
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
 
-      <div className="flex mt-10 w-full h-[1rem]"></div>
+      <div className="flex mt-10 w-full h-[1rem] border-2 "></div>
     </div>
   );
 };
