@@ -5,12 +5,12 @@ import SideNav from "../Components/SideNav";
 const Home = (props) => {
   return (
     <div
-      className={`font-poppins ${props.name} bg-blue-400 flex justify-center items-center h-screen `}
+      className={`font-poppins bg-blue-400 flex justify-center items-center h-screen `}
     >
       {/* <Nav />
       <SideNav /> */}
       {/* <div className="sd"> hOMESDFASDNFASKDNFALSDNFLKN</div> */}
-      dsnjnaskfjnd
+     Home
     </div>
   );
 };
