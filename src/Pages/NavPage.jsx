@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "../Paths/Home";
 import Transfer from "../Paths/Transfer";
 import Pending from "../Paths/Pending";
@@ -15,6 +15,7 @@ const NavPage = () => {
         <Route path="/pending" element={<Pending />} />
         <Route path="/rejected" element={<Rejected />} />
         <Route path="/completed" element={<Completed />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
