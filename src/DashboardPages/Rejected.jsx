@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Rejected = () => {
+  const navigate = useNavigate();
   return (
     <div>
       {" "}
@@ -11,6 +13,7 @@ const Rejected = () => {
   <SideNav /> */}
         {/* <div className="sd"> hOMESDFASDNFASKDNFALSDNFLKN</div> */}
         Rejected
+       
       </div>
     </div>
   );

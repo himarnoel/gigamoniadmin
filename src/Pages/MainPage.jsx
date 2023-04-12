@@ -13,7 +13,6 @@ const MainPage = () => {
           <SideNav />
         </div>
         <div className="col-span-9 ">
-          {/* <NavPage /> */}
           <Outlet />
         </div>
       </div>
