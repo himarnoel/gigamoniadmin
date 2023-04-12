@@ -43,7 +43,10 @@ const Transfer = () => {
           </div>
         </div>
         <div className="relative">
-          <button className="text-[#F8F8FF] flex bg-[#009186] px-12 py-4 rounded-lg items-center ">
+          <button
+            onClick={() => setshowactions(!showactions)}
+            className="text-[#F8F8FF] flex bg-[#009186] px-12 py-4 rounded-lg items-center "
+          >
             <p className="ss"> Action</p>{" "}
             <MdOutlineKeyboardArrowDown className="text-xl" />
           </button>
