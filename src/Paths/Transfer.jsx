@@ -36,13 +36,23 @@ const Transfer = () => {
             <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
               $ 2,000
             </p>
-            <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">view</p>
+            <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">
+              view
+            </p>
           </div>
         </div>
-        <button className="text-[#F8F8FF] flex bg-[#009186] px-12 py-3 rounded-lg items-center ">
-          <p className="ss"> Action</p>{" "}
-          <MdOutlineKeyboardArrowDown className="text-xl" />
-        </button>
+        <div className="relative">
+          <button className="text-[#F8F8FF] flex bg-[#009186] px-12 py-4 rounded-lg items-center ">
+            <p className="ss"> Action</p>{" "}
+            <MdOutlineKeyboardArrowDown className="text-xl" />
+          </button>
+          <div className={
+            "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
+          }>
+            <p className="text-[#00913E] cursor-pointer ">Accept</p>
+            <p className="text-[#D80010] cursor-pointer ">Cancel</p>
+          </div>
+        </div>
       </div>
     </div>
   );
