@@ -46,11 +46,17 @@ const Transfer = () => {
             <p className="ss"> Action</p>{" "}
             <MdOutlineKeyboardArrowDown className="text-xl" />
           </button>
-          <div className={
-            "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
-          }>
-            <p className="text-[#00913E] cursor-pointer ">Accept</p>
-            <p className="text-[#D80010] cursor-pointer ">Cancel</p>
+          <div
+            className={
+              "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
+            }
+          >
+            <p className="text-[#00913E] cursor-pointer font-semibold">
+              Accept
+            </p>
+            <p className="text-[#D80010] cursor-pointer font-semibold">
+              Cancel
+            </p>
           </div>
         </div>
       </div>
