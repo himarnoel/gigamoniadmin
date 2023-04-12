@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SidebarData } from "../Data/navdata";
+import { SidebarData } from "../SideNavData/navdata";
 import { NavLink } from "react-router-dom";
 
 const SideNav = () => {
