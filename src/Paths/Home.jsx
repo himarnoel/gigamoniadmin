@@ -20,7 +20,7 @@ const Home = (props) => {
           <p className="mt-5 text-4xl font-semibold">0</p>
         </div>
       </div>
-      <div className="flex mt-10 justify-around w-[37rem] items-center">
+      <div className="flex mt-10 justify-between w-[37rem] items-center">
         <p className="text-xl font-semibold  cursor-pointer">
           Transaction activities
         </p>
