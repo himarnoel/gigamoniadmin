@@ -2,6 +2,7 @@ import React from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const Transfer = () => {
+  const [showactions, setshowactions] = useState(false);
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-6 `}>
       <p className="text-2xl font-semibold text-[#175873]">
@@ -48,7 +49,9 @@ const Transfer = () => {
           </button>
           <div
             className={
-              "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
+              showactions
+                ? "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
+                : "hidden"
             }
           >
             <p className="text-[#00913E] cursor-pointer font-semibold">
