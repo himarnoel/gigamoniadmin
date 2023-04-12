@@ -5,6 +5,7 @@ import Transfer from "../Paths/Transfer";
 import Pending from "../Paths/Pending";
 import Rejected from "../Paths/Rejected";
 import Completed from "./../Paths/Completed";
+import TransferRequestDetails from "./../Paths/TransferRequestDetails";
 
 const NavPage = () => {
   return (
@@ -15,6 +16,7 @@ const NavPage = () => {
         <Route path="/pending" element={<Pending />} />
         <Route path="/rejected" element={<Rejected />} />
         <Route path="/completed" element={<Completed />} />
+        
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
