@@ -5,7 +5,7 @@ const Outside = () => {
   return (
     <div>
       <Routes>
-        <Route />
+        <Route path="/" element={} />
       </Routes>
     </div>
   );

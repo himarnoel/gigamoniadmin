@@ -5,7 +5,7 @@ import Transfer from "../DashboardPages/Transfer";
 import Pending from "../DashboardPages/Pending";
 import Rejected from "../DashboardPages/Rejected";
 import Completed from "../DashboardPages/Completed";
-import TransferRequestDetails from "../DashboardPages/TransferRequestDetails";
+import TransferRequestDetails from "../OutsidePages/TransferRequestDetails";
 
 const NavPage = () => {
   return (
