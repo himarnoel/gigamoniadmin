@@ -52,7 +52,7 @@ const Transfer = () => {
           <div
             className={
               showactions
-                ? "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
+                ? "rounded-lg bg-[#F8F8FF] absolute z-[10] w-full top-10 px-2 gap-y-6  h-[8rem] flex justify-center flex-col"
                 : "hidden"
             }
           >
@@ -105,9 +105,7 @@ const Transfer = () => {
           </button>
           <div
             className={
-              showactions
-                ? "rounded-lg bg-[#F8F8FF] absolute z-[10] shadow w-full top-10 px-2 gap-y-6  h-[6rem] flex justify-center flex-col"
-                : "hidden"
+             "hidden"
             }
           >
             <p
