@@ -6,19 +6,12 @@ import Pending from "../DashboardPages/Pending";
 import Rejected from "../DashboardPages/Rejected";
 import Completed from "../DashboardPages/Completed";
 import TransferRequestDetails from "../OutsidePages/TransferRequestDetails";
+import MainPage from "./MainPage";
 
 const NavPage = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/transfer" element={<Transfer />} />
-        <Route path="/pending" element={<Pending />} />
-        <Route path="/rejected" element={<Rejected />} />
-        <Route path="/completed" element={<Completed />} />
-
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      
     </div>
   );
 };

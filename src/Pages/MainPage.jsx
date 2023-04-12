@@ -1,7 +1,8 @@
 import React from "react";
 import Nav from "../Components/Nav";
 import SideNav from "./../Components/SideNav";
-import NavPage from "./NavPage";
+import NavPage from "./Paths";
+import { Outlet } from "react-router-dom";
 
 const MainPage = () => {
   return (
@@ -12,7 +13,8 @@ const MainPage = () => {
           <SideNav />
         </div>
         <div className="col-span-9 ">
-          <NavPage />
+          {/* <NavPage /> */}
+          <Outlet />
         </div>
       </div>
     </div>
