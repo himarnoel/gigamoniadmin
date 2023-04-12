@@ -18,8 +18,8 @@ const Transfer = () => {
       </div>
 
       <div className="flex mt-10 gap-x-20  items-center">
-        <div className="flex flex-col justify-between w-full min-h-[7rem] py-1 px-4 rounded-lg border-2 border-[#009186]">
-          <div className="grid grid-cols-12 text-sm">
+        <div className="flex flex-col justify-between w-full min-h-[7rem]  px-4 rounded-lg border-2 border-[#009186]">
+          <div className="grid grid-cols-12 text-sm items-center">
             <p className="text-sm text-[#175873] col-span-5">
               01/01/2023 11:30am
             </p>
@@ -27,19 +27,19 @@ const Transfer = () => {
               Account name: Lorem Ipsum University, London{" "}
             </p>
           </div>
-          <div className="grid grid-cols-12 text-sm justify-between text-[#262626]">
+          <div className="grid grid-cols-12 text-sm items-center text-[#262626]">
             <p className="col-span-5">Bank Name: JPMorgan Chase Bank</p>
             <p className="col-span-7">Account number: 12345678901234</p>
           </div>
-          <div className="grid grid-cols-12 text-sm justify-between">
+          <div className="grid grid-cols-12 text-sm items-center">
             <p className="col-span-5">Payment Method: Card Payment</p>
-            <p className="text-[#175873] text-lg font-semibold col-span-6 ">
+            <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
               $ 2,000
             </p>
-            <p className="text-[#009186] cursor-pointer  col-span-1 ">view</p>
+            <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">view</p>
           </div>
         </div>
-        <button className="text-[#F8F8FF] flex bg-[#009186] px-12 py-3 rounded-lg items-center">
+        <button className="text-[#F8F8FF] flex bg-[#009186] px-12 py-3 rounded-lg items-center ">
           <p className="ss"> Action</p>{" "}
           <MdOutlineKeyboardArrowDown className="text-xl" />
         </button>
