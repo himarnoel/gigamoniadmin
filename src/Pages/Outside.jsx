@@ -1,7 +1,14 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 const Outside = () => {
-  return <div>Outside</div>;
+  return (
+    <div>
+      <Routes>
+        <Route />
+      </Routes>
+    </div>
+  );
 };
 
 export default Outside;
