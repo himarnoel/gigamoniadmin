@@ -17,7 +17,7 @@ const Completed = () => {
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
       <div className="flex mt-10 gap-x-20  items-center">
-        <div className="flex flex-col justify-between w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
+        <div className="flex flex-col justify-between w-[40rem] py-1 min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
           <div className="grid grid-cols-12 text-sm items-center">
             <p className="text-sm text-[#175873] col-span-5">
               01/01/2023 11:30am
@@ -42,7 +42,7 @@ const Completed = () => {
         </div>
       </div>
       <div className="flex mt-10 gap-x-20  items-center">
-        <div className="flex flex-col justify-between w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
+        <div className="flex flex-col justify-between w-[40rem] py-1 min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
           <div className="grid grid-cols-12 text-sm items-center">
             <p className="text-sm text-[#175873] col-span-5">
               01/01/2023 11:30am
