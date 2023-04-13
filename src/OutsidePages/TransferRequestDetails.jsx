@@ -10,11 +10,11 @@ const TransferRequestDetails = () => {
       email: "",
       phoneNumber: "",
       address: "",
-      country:"",
+      country: "",
       bvn: "",
     },
     validationSchema: Validaterequest,
-    onSubmit: (values) => {}
+    onSubmit: (values) => {},
   });
   return (
     <div className={`font-poppins   `}>
@@ -31,12 +31,12 @@ const TransferRequestDetails = () => {
           <p className="ss">Date: 01/01/2023 11:30am</p>
         </div>
 
-        <div className="flex  gap-x-[3.9rem] text-sm mt-10">
+        <div className="flex  gap-x-[3.9rem] text-sm mt-10 ">
           <p className="">Mode of payment: Card Payment</p>
           <p className="font-medium text-[#000000]">Local Currency: ₦</p>
         </div>
-        <div className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10">
-          <div className="1 ">
+        <div className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24">
+          <div className="h-[24rem] bg-blue-200 flex flex-col justify-between">
             {" "}
             <p className="">Sender’s Details</p>
             <div className="relative z-0 mt-0">
@@ -66,6 +66,102 @@ const TransferRequestDetails = () => {
               {formik.errors.name && formik.touched.name ? (
                 <p className="text-red-500 text-xs font-poppins">
                   {formik.errors.name}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="email"
+                className={
+                  formik.errors.email && formik.touched.email
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="email"
+                className={
+                  formik.errors.email && formik.touched.email
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Email
+              </label>
+              {formik.errors.email && formik.touched.email ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.email}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="phonenumber"
+                className={
+                  formik.errors.phoneNumber && formik.touched.phoneNumber
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.phoneNumber}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="phoneNumber"
+                className={
+                  formik.errors.phoneNumber && formik.touched.phoneNumber
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Phone Number
+              </label>
+              {formik.errors.phoneNumber && formik.touched.phoneNumber ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.phoneNumber}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="country"
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.country}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="country"
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Phone Number
+              </label>
+              {formik.errors.country && formik.touched.country ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.country}
                 </p>
               ) : (
                 ""
