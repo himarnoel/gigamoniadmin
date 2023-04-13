@@ -4,7 +4,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const Transfer = () => {
   const [showactions, setshowactions] = useState(false);
   return (
-    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-6 `}>
+    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">
         Fund Transfer Requests
       </p>
@@ -44,7 +44,7 @@ const Transfer = () => {
         <div className="relative">
           <button
             onClick={() => setshowactions(!showactions)}
-            className="text-[#F8F8FF] flex bg-[#009186] px-12 py-4 rounded-lg items-center "
+            className="text-[#F8F8FF] flex bg-[#009186] px-14 py-3 rounded-lg items-center text-sm "
           >
             <p className="ss"> Action</p>{" "}
             <MdOutlineKeyboardArrowDown className="text-xl" />
@@ -98,16 +98,12 @@ const Transfer = () => {
         <div className="relative">
           <button
             onClick={() => setshowactions(!showactions)}
-            className="text-[#F8F8FF] flex bg-[#009186] px-12 py-4 rounded-lg items-center "
+            className="text-[#F8F8FF] flex bg-[#009186] px-14 py-3 rounded-lg items-center text-sm"
           >
             <p className="ss"> Action</p>{" "}
             <MdOutlineKeyboardArrowDown className="text-xl" />
           </button>
-          <div
-            className={
-             "hidden"
-            }
-          >
+          <div className={"hidden"}>
             <p
               onClick={() => setshowactions(!showactions)}
               className="text-[#00913E] cursor-pointer font-semibold"

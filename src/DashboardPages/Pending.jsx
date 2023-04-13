@@ -4,7 +4,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const Pending = () => {
   const [showactions, setshowactions] = useState(false);
   return (
-    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-6 `}>
+    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">
         Pending Transactions
       </p>

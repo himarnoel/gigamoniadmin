@@ -4,7 +4,7 @@ import SideNav from "../Components/SideNav";
 
 const Home = (props) => {
   return (
-    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-6 `}>
+    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">Activity Overview</p>
       <div className="flex w-full gap-x-4 mt-8">
         <div className="rounded-lg bg-[#87ACA3] flex flex-col    pt-10 items-center h-[10rem] w-[20rem] px-2 text-[#F8F8FF]">
