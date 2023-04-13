@@ -37,7 +37,7 @@ const TransferRequestDetails = () => {
         </div>
         {/* sdsdsd */}
         <form className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20">
-          <div className="h-[24rem] bg-blue-200 flex flex-col justify-between">
+          <div className="h-[24rem]  flex flex-col justify-between">
             {" "}
             <p className="">Sender’s Details</p>
             <div className="relative z-0 mt-0">
@@ -167,6 +167,9 @@ const TransferRequestDetails = () => {
               ) : (
                 ""
               )}
+            </div>
+            <div className="flex bg-[#DAF2F1] rounded-lg w-full h-[45rem]">
+              <p className="s">Add Service Fee</p>
             </div>
           </div>
           <div className="2 ">
