@@ -35,7 +35,8 @@ const TransferRequestDetails = () => {
           <p className="">Mode of payment: Card Payment</p>
           <p className="font-medium text-[#000000]">Local Currency: ₦</p>
         </div>
-        <div className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20">
+        {/* sdsdsd */}
+        <form className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20">
           <div className="h-[24rem] bg-blue-200 flex flex-col justify-between">
             {" "}
             <p className="">Sender’s Details</p>
@@ -157,43 +158,11 @@ const TransferRequestDetails = () => {
                     : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 }
               >
-            Bank Verification Number (BVN)
+                Bank Verification Number (BVN)
               </label>
               {formik.errors.bvn && formik.touched.bvn ? (
                 <p className="text-red-500 text-xs font-poppins">
                   {formik.errors.bvn}
-                </p>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="relative z-0 mt-0">
-              <input
-                type="text"
-                id="country"
-                className={
-                  formik.errors.country && formik.touched.country
-                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                }
-                placeholder=" "
-                onChange={formik.handleChange}
-                value={formik.values.country}
-                onBlur={formik.handleBlur}
-              />
-              <label
-                for="country"
-                className={
-                  formik.errors.country && formik.touched.country
-                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                }
-              >
-                Country
-              </label>
-              {formik.errors.country && formik.touched.country ? (
-                <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.country}
                 </p>
               ) : (
                 ""
@@ -204,7 +173,7 @@ const TransferRequestDetails = () => {
             {" "}
             <p className="">Receiver's Details</p>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
