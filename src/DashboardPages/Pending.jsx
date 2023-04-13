@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const Pending = () => {
-  const [showactions, setshowactions] = useState(false);
+
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">
@@ -43,31 +43,12 @@ const Pending = () => {
         </div>
         <div className="relative">
           <button
-            onClick={() => setshowactions(!showactions)}
+
             className="text-[#F8F8FF] flex bg-[#009186] px-16 py-3 rounded-lg items-center text-sm"
           >
             Done
           </button>
-          <div
-            className={
-              showactions
-                ? "rounded-lg bg-[#F8F8FF] absolute z-[10] w-full top-10 px-4  h-[8rem] flex justify-between py-8  flex-col"
-                : "hidden"
-            }
-          >
-            <p
-              onClick={() => setshowactions(!showactions)}
-              className="text-[#00913E] cursor-pointer font-semibold"
-            >
-              Accept
-            </p>
-            <p
-              onClick={() => setshowactions(!showactions)}
-              className="text-[#D80010] cursor-pointer font-semibold"
-            >
-              Cancel
-            </p>
-          </div>
+         
         </div>
       </div>
       <div className="flex mt-10 gap-x-20  items-center">
@@ -96,25 +77,12 @@ const Pending = () => {
         </div>
         <div className="relative">
           <button
-            onClick={() => setshowactions(!showactions)}
+          
             className="text-[#F8F8FF] flex bg-[#009186] px-16 py-3 rounded-lg items-center text-sm "
           >
             Done
           </button>
-          <div className={"hidden"}>
-            <p
-              onClick={() => setshowactions(!showactions)}
-              className="text-[#00913E] cursor-pointer font-semibold"
-            >
-              Accept
-            </p>
-            <p
-              onClick={() => setshowactions(!showactions)}
-              className="text-[#D80010] cursor-pointer font-semibold"
-            >
-              Cancel
-            </p>
-          </div>
+        
         </div>
       </div>
     </div>
