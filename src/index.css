@@ -4,3 +4,12 @@
 body{
     background-color: #F8F8FF;
 }
+.spin-button-none::-webkit-outer-spin-button,
+.spin-button-none::-webkit-inner-spin-button{
+  appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
