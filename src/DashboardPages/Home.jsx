@@ -1,23 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../Components/Nav";
 import SideNav from "../Components/SideNav";
+import axios from "axios";
+import { baseurl } from "../Service/Validate";
 
 const Home = (props) => {
+  const [load, setload] = useState(false);
+  const [data, setdata] = useState({});
+  useEffect(() => {
+    setload(true);
+    axios
+      .get(`${baseurl}/gadmin/summary/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setdata(res.data);
+        setload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+      });
+  }, []);
+
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">Activity Overview</p>
       <div className="flex w-full gap-x-4 mt-8">
         <div className="rounded-lg bg-[#87ACA3] flex flex-col    pt-10 items-center h-[10rem] w-[20rem] px-2 text-[#F8F8FF]">
           <p className="text-base">Number of Users</p>
-          <p className="mt-5 text-4xl font-semibold">0</p>
+          <p className="mt-5 text-4xl font-semibold">{data.noOfUsers}</p>
         </div>
         <div className="rounded-lg bg-[#87ACA3] flex flex-col    pt-10 items-center h-[10rem] w-[20rem] px-2 text-[#F8F8FF]">
           <p className="text-base">Fund Transfer Request</p>
-          <p className="mt-5 text-4xl font-semibold">0</p>
+          <p className="mt-5 text-4xl font-semibold">
+            {data.fundTransferRequests}
+          </p>
         </div>
         <div className="rounded-lg bg-[#87ACA3] flex flex-col    pt-10 items-center h-[10rem] w-[20rem] px-2 text-[#F8F8FF]">
           <p className="text-base">Pending Transactions</p>
-          <p className="mt-5 text-4xl font-semibold">0</p>
+          <p className="mt-5 text-4xl font-semibold">
+            {data.pendingTransactions}
+          </p>
         </div>
       </div>
       <div className="flex mt-10 justify-between w-[37rem] items-center">
