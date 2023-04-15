@@ -5,9 +5,12 @@ import { Validaterequest } from "../Service/Validate";
 import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../assets/iconic.svg";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import RingLoader from "./../../node_modules/react-spinners/esm/RingLoader";
 const TransferRequestDetails = () => {
   const navigate = useNavigate();
-  const [load, setload] = useState(false);
+  const [overlay, setoverlay] = useState(false);
+  const [show, setshow] = useState(false);
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();
@@ -60,86 +63,116 @@ const TransferRequestDetails = () => {
     onSubmit: (values) => {
       window.scroll({ top: 0, left: 0 });
       body.style.overflow = "hidden";
-      setload(true);
+      setoverlay(true);
     },
   });
-  const closemodal = () => {
+  const closeModal = () => {
     body.style.overflow = "";
-    setload(false);
+    setshow(true);
+  
+
+  };
+  const processTransaction = () => {
+    body.style.overflow = "";
+    setoverlay(false);
+    axios
+      .post(
+        `${baseurl}/gadmin/completed/`,
+        {
+          amountSent: formik.values.amountsent,
+          status: "Update",
+        },
+
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <div className={`font-poppins   `}>
       <Nav />
       <div
         className={
-          load
+          overlay
             ? "absolute top-0   bg-[#262626]/[0.8]    z-[90] h-screen w-full flex  justify-center items-center text-3xl"
             : "hidden"
         }
       >
-        <div className="flex flex-col items-center px-8 pt-4 bg-[#F8F8FF] rounded-[11.8392px] w-[26rem] h-[24rem]">
-          <p className="text-[#000000] font-semibold text-lg">
-            Accept Transcation
-          </p>
-          <p className="text-xs text-center text-[#000000]  mt-4">
-            By accepting this transaction the user will receive continuation
-            email , payment details and charged service fee below{" "}
-          </p>
-          <span className="flex w-fit mt-8">
-            <span className="relative z-0 ">
-              <select
-                type="text"
-                id="sendingcurrency"
+        {show ? (
+          <div className="flex flex-col items-center px-8 pt-4 bg-[#F8F8FF] rounded-[11.8392px] w-[26rem] h-[24rem]">
+            <p className="text-[#000000] font-semibold text-lg">
+              Accept Transcation
+            </p>
+            <p className="text-xs text-center text-[#000000]  mt-4">
+              By accepting this transaction the user will receive continuation
+              email , payment details and charged service fee below{" "}
+            </p>
+            <span className="flex w-fit mt-8">
+              <span className="relative z-0 ">
+                <select
+                  type="text"
+                  id="sendingcurrency"
+                  className={
+                    formik.errors.sendingcurrency &&
+                    formik.touched.sendingcurrency
+                      ? "  font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    //placeholder=" "
+                  }
+                  onChange={formik.handleChange}
+                  value={formik.values.sendingcurrency}
+                  onBlur={formik.handleBlur}
+                  placeholder="receivingcountry"
+                >
+                  <option value="NGN" selected>
+                    NGN
+                  </option>
+
+                  <option value="Pounds">Pounds</option>
+                </select>
+                <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-4 right-0 flex items-center px-2 text-[#707070]" />
+              </span>
+              <input
+                type="number"
+                id="amountsent"
+                disabled
+                placeholder="00000"
                 className={
-                  formik.errors.sendingcurrency &&
-                  formik.touched.sendingcurrency
-                    ? "  font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    : " font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                  //placeholder=" "
+                  formik.errors.amountsent && formik.touched.amountsent
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                 }
                 onChange={formik.handleChange}
-                value={formik.values.sendingcurrency}
+                value={formik.values.amountsent}
                 onBlur={formik.handleBlur}
-                placeholder="receivingcountry"
-              >
-                <option value="NGN" selected>
-                  NGN
-                </option>
-
-                <option value="Pounds">Pounds</option>
-              </select>
-              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-4 right-0 flex items-center px-2 text-[#707070]" />
+              />
             </span>
-            <input
-              type="number"
-              id="amountsent"
-              disabled
-              placeholder="00000"
-              className={
-                formik.errors.amountsent && formik.touched.amountsent
-                  ? " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                  : " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-              }
-              onChange={formik.handleChange}
-              value={formik.values.amountsent}
-              onBlur={formik.handleBlur}
-            />
-          </span>
-          <div className="flex text-[#F8F8FF] text-xs justify-between w-full mt-8">
-            <button
-              onClick={() => closemodal()}
-              className="w-[10rem] py-3 bg-[#D80010] rounded-lg"
-            >
-              No
-            </button>
-            <button
-              onClick={() => closemodal()}
-              className="w-[10rem] py-3 bg-[#00913E] rounded-lg"
-            >
-              Yes
-            </button>
+            <div className="flex text-[#F8F8FF] text-xs justify-between w-full mt-8">
+              <button
+                onClick={() => closeModal()}
+                className="w-[10rem] py-3 bg-[#D80010] rounded-lg"
+              >
+                No
+              </button>
+              <button
+                onClick={() => processTransaction()}
+                className="w-[10rem] py-3 bg-[#00913E] rounded-lg"
+              >
+                Yes
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <RingLoader color="#009186" size={90} />
+        )}
       </div>
       <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
         <button
