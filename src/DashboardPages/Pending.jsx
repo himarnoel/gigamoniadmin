@@ -44,21 +44,23 @@ const Pending = () => {
           <div className="flex flex-col justify-between w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
             <div className="grid grid-cols-12 text-sm items-center">
               <p className="text-sm text-[#175873] col-span-5">
-                01/01/2023 11:30am
+                {item.transactionCreatedDate}
               </p>
               <p className="text-[#175873] font-semibold col-span-7">
-                Account name:{item.receiverAcctName}
+                Account name: {item.receiverAcctName}
               </p>
             </div>
 
             <div className="grid grid-cols-12 text-sm items-center text-[#262626]">
-              <p className="col-span-5">Bank Name: JPMorgan Chase Bank</p>
-              <p className="col-span-7">Account number: 12345678901234</p>
+              <p className="col-span-5">Bank Name: {item.receiverBankName}</p>
+              <p className="col-span-7">
+                Account number: {item.receiverAcctNo}
+              </p>
             </div>
             <div className="grid grid-cols-12 text-sm items-center">
-              <p className="col-span-5">Payment Method: Card Payment</p>
+              <p className="col-span-5">Payment Method: {item.paymentMethod}</p>
               <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
-                $ 2,000
+                $ {item.amountReceived}
               </p>
               <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">
                 view
