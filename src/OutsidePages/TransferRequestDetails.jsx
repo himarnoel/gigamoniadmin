@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../Components/Nav";
 import { useFormik } from "formik";
 import { Validaterequest } from "../Service/Validate";
@@ -9,7 +9,31 @@ const TransferRequestDetails = () => {
   const navigate = useNavigate();
   const [load, setload] = useState(false);
   const { state } = useLocation();
-  
+
+  useEffect(() => {
+    console.log(state);
+
+    formik.setValues({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      bvn: "",
+      amountsent: state.amountReceived ?? "",
+      receivingcurrency: "",
+      amountReceived: "",
+      receivername: state.receiverName ?? "",
+      receiverphoneNumber: state.receiverPhone ?? "",
+      receiveremailAddress: state.receiverEmail ?? "",
+      receiveraccountName: state.receiverAcctName ?? "",
+      receiveraccountNumber: state.receiverAcctNo ?? "",
+      receiverbankName: state.receiverBankName ?? "",
+      receiverbankAddress: state.receiverBankAddress ?? "",
+      receiveriban: state.receiverIban ?? "",
+      receiverswiftCode: state.receiverSwiftCode ?? "",
+    });
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       name: "",
