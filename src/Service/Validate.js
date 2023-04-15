@@ -21,11 +21,6 @@ export const Validaterequest = yup.object().shape({
   amountReceived: yup.string().required("Please fill up this field"),
   receivername: yup.string().required("Please fill up this field"),
   bankName: yup.string().required("Please fill up this field"),
-  phoneNumber: yup
-    .string()
-    .required("Please fill up this field")
-    .matches(phoneRegExp, "Phone number is not valid")
-    .max(15, "too long"),
   bankAddress: yup.string().required("Please fill up this field"),
   emailAddress: yup
     .string()
