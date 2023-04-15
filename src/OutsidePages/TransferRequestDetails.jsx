@@ -41,7 +41,7 @@ const TransferRequestDetails = () => {
         </div>
         {/* sdsdsd */}
         <form className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20">
-          <div className="h-[24rem]  flex flex-col justify-between">
+          <div className="h-[32rem]  flex flex-col justify-between">
             {" "}
             <p className="">Sender’s Details</p>
             <div className="relative z-0 mt-0">
@@ -172,11 +172,11 @@ const TransferRequestDetails = () => {
                 ""
               )}
             </div>
-            <div className="flex flex-col bg-[#DAF2F1] rounded-lg w-full h-[40rem]">
-              <p className="text-sm">Add Service Fee</p>
+            <div className="flex flex-col bg-[#DAF2F1] rounded-2xl w-full h-[14rem] items-start  justify-evenly px-6">
+              <p className="text-sm text-[#87ACA3]">Add Service Fee</p>
               <span>
                 <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
-                <span className="flex ">
+                <span className="flex w-fit ">
                   <span className="relative z-0 ">
                     <select
                       type="text"
@@ -216,6 +216,12 @@ const TransferRequestDetails = () => {
                   />
                 </span>
               </span>
+              <button className="px-2 py-1 text-[#00913E] font-semibold mt-3">
+                Accept
+              </button>
+              <button className="px-2 py-1 text-[#D80010] font-semibold ">
+                Cancel
+              </button>
             </div>
           </div>
           <div className="2 ">
