@@ -35,5 +35,5 @@ export const Validaterequest = yup.object().shape({
   accountName: yup.string().required("Please fill up this field"),
   swiftCode: yup.string().required("Please fill up this field"),
   accountNumber: yup.string().required("Please fill up this field"),
- country: yup.string().required("Please fill up this field"),s
+  country: yup.string().required("Please fill up this field"),
 });
