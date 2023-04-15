@@ -25,6 +25,11 @@ const Transfer = () => {
         setload(false);
       });
   }, []);
+  const openUp = (i) => {
+    if (i===1) {
+
+    }
+  };
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">
@@ -68,7 +73,7 @@ const Transfer = () => {
           </div>
           <div className="relative">
             <button
-              onClick={() => setshowactions(!showactions)}
+              onClick={() => openUp(i)}
               className="text-[#F8F8FF] flex bg-[#009186] px-14 py-3 rounded-lg items-center text-sm "
             >
               <p className="ss"> Action</p>{" "}
