@@ -1,7 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { baseurl } from "../Service/Validate";
+import axios from "axios";
 const Completed = () => {
+  const navigate = useNavigate();
+  const [showactions, setshowactions] = useState(false);
+  const [load, setload] = useState(false);
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    setload(true);
+    axios
+      .get(`${baseurl}/gadmin/rejected/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setdata(res.data);
+        setload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+      });
+  }, []);
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">
