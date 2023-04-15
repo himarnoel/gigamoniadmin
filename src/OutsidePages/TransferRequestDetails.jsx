@@ -36,7 +36,7 @@ const TransferRequestDetails = () => {
       <Nav />
       <div
         className={
-          !load
+          load
             ? "absolute top-0   bg-[#262626]/[0.8]    z-[90] h-screen w-full flex  justify-center items-center text-3xl"
             : "hidden"
         }
@@ -72,9 +72,10 @@ const TransferRequestDetails = () => {
 
                 <option value="Pounds">Pounds</option>
               </select>
-              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-4 right-0 flex items-center px-2 text-[#707070]" />
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
             </span>
             <input
+        
               type="number"
               id="amountsent"
               placeholder="00000"
@@ -125,6 +126,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="name"
                 className={
                   formik.errors.name && formik.touched.name
@@ -157,6 +159,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="email"
                 className={
                   formik.errors.email && formik.touched.email
@@ -189,6 +192,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="phoneNumber"
                 className={
                   formik.errors.phoneNumber && formik.touched.phoneNumber
@@ -221,6 +225,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="bankAddress"
                 className={
                   formik.errors.bankAddress && formik.touched.bankAddress
@@ -253,6 +258,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="bvn"
                 className={
                   formik.errors.bvn && formik.touched.bvn
@@ -339,6 +345,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receivername"
                 className={
                   formik.errors.receivername && formik.touched.receivername
@@ -371,6 +378,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiverphoneNumber"
                 className={
                   formik.errors.receiverphoneNumber &&
@@ -406,6 +414,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiveremailAddress"
                 className={
                   formik.errors.receiveremailAddress &&
@@ -442,6 +451,7 @@ const TransferRequestDetails = () => {
               <input
                 type="text"
                 id="receiveraccountName"
+                disabled
                 className={
                   formik.errors.receiveraccountName &&
                   formik.touched.receiveraccountName
@@ -476,6 +486,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiveraccountNumber"
                 className={
                   formik.errors.receiveraccountNumber &&
@@ -511,6 +522,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiverbankAddress"
                 className={
                   formik.errors.receiverbankAddress &&
@@ -546,6 +558,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiverbankName"
                 className={
                   formik.errors.receiverbankName &&
@@ -581,6 +594,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiveriban"
                 className={
                   formik.errors.receiveriban && formik.touched.receiveriban
@@ -613,6 +627,7 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
+                disabled
                 id="receiverswiftCode"
                 className={
                   formik.errors.receiverswiftCode &&
