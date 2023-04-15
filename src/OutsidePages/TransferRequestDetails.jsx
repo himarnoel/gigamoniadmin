@@ -9,7 +9,7 @@ const TransferRequestDetails = () => {
   const navigate = useNavigate();
   const [load, setload] = useState(false);
   const { state } = useLocation();
-  console.log(state);
+  
   const formik = useFormik({
     initialValues: {
       name: "",
