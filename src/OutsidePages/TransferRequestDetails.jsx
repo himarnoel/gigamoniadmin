@@ -16,14 +16,17 @@ const TransferRequestDetails = () => {
       receivingcurrency: "",
       amountReceived: "",
       receivername: "",
-      receiverbankName: "",
       receiverphoneNumber: "",
-      receiverbankAddress: "",
       receiveremailAddress: "",
-      receiveriban: "",
       receiveraccountName: "",
-      receiverswiftCode: "",
       reciveraccountNumber: "",
+      receiverbankName: "",
+
+      receiverbankAddress: "",
+
+      receiveriban: "",
+
+      receiverswiftCode: "",
     },
     validationSchema: Validaterequest,
     onSubmit: (values) => {},
