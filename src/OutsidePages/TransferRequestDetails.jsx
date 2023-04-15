@@ -113,6 +113,7 @@ const TransferRequestDetails = () => {
             <input
               type="number"
               id="amountsent"
+              disabled
               placeholder="00000"
               className={
                 formik.errors.amountsent && formik.touched.amountsent
