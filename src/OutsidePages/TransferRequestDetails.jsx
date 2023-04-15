@@ -36,7 +36,7 @@ const TransferRequestDetails = () => {
       <Nav />
       <div
         className={
-          !load
+          load
             ? "absolute top-0   bg-[#262626]/[0.8]    z-[90] h-screen w-full flex  justify-center items-center text-3xl"
             : "hidden"
         }
@@ -89,8 +89,12 @@ const TransferRequestDetails = () => {
             />
           </span>
           <div className="flex text-[#F8F8FF] text-xs justify-between w-full mt-8">
-            <button className="w-[10rem] py-3 bg-[#D80010] rounded-lg">No</button>
-            <button className="w-[10rem] py-3 bg-[#00913E] rounded-lg">Yes</button>
+            <button className="w-[10rem] py-3 bg-[#D80010] rounded-lg">
+              No
+            </button>
+            <button className="w-[10rem] py-3 bg-[#00913E] rounded-lg">
+              Yes
+            </button>
           </div>
         </div>
       </div>
