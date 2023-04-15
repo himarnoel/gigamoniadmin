@@ -19,7 +19,7 @@ const TransferRequestDetails = () => {
       receiverphoneNumber: "",
       receiveremailAddress: "",
       receiveraccountName: "",
-      reciveraccountNumber: "",
+      receiveraccountNumber: "",
       receiverbankName: "",
       receiverbankAddress: "",
       receiveriban: "",
