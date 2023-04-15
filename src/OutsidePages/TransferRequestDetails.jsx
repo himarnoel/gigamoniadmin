@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "../Components/Nav";
 import { useFormik } from "formik";
 import { Validaterequest } from "../Service/Validate";
@@ -9,6 +9,10 @@ const TransferRequestDetails = () => {
   const navigate = useNavigate();
   const [load, setload] = useState(false);
   const { state } = useLocation();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
 
   useEffect(() => {
     console.log(state);
@@ -54,10 +58,15 @@ const TransferRequestDetails = () => {
     },
     validationSchema: Validaterequest,
     onSubmit: (values) => {
-      setload(!load);
+      window.scroll({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
+      setload(true);
     },
   });
-  console.log(formik.errors);
+  const closemodal = () => {
+    body.style.overflow = "";
+    setload(false);
+  };
   return (
     <div className={`font-poppins   `}>
       <Nav />
@@ -116,10 +125,16 @@ const TransferRequestDetails = () => {
             />
           </span>
           <div className="flex text-[#F8F8FF] text-xs justify-between w-full mt-8">
-            <button className="w-[10rem] py-3 bg-[#D80010] rounded-lg">
+            <button
+              onClick={() => closemodal()}
+              className="w-[10rem] py-3 bg-[#D80010] rounded-lg"
+            >
               No
             </button>
-            <button className="w-[10rem] py-3 bg-[#00913E] rounded-lg">
+            <button
+              onClick={() => closemodal()}
+              className="w-[10rem] py-3 bg-[#00913E] rounded-lg"
+            >
               Yes
             </button>
           </div>

@@ -7,14 +7,13 @@ import Pending from "./DashboardPages/Pending";
 import Rejected from "./DashboardPages/Rejected";
 import Completed from "./DashboardPages/Completed";
 import MainPage from "./Pages/MainPage";
-
 import Home from "./DashboardPages/Home";
+import PendingTransactionDetails from "./OutsidePages/PendingTransactionDetails";
 
 function App() {
   return (
     <div>
       <Routes>
-    
         <Route element={<MainPage />}>
           <Route path="/" element={<Home />} />
           <Route path="/transfer" element={<Transfer />} />
@@ -26,6 +25,11 @@ function App() {
           path="/transferrequestdetails"
           element={<TransferRequestDetails />}
         />
+        <Route
+          path="/pendingtransactiondetails"
+          element={<PendingTransactionDetails />}
+        />
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
