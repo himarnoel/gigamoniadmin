@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../Components/Nav";
 import { useFormik } from "formik";
 import { Validaterequest } from "../Service/Validate";
@@ -6,6 +6,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../assets/iconic.svg";
 import { useNavigate } from "react-router-dom";
 const TransferRequestDetails = () => {
+  const [load, setload] = useState(false);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,6 +34,23 @@ const TransferRequestDetails = () => {
   return (
     <div className={`font-poppins   `}>
       <Nav />
+      <div
+        className={
+          !load
+            ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <div className="flex flex-col justify-center bg-[#F8F8FF] rounded-[11.8392px] w-[24rem] h-[24rem]">
+          <p className="text-[#000000] font-semibold text-lg">
+            Accept Transcation
+          </p>
+          <p className="s">
+            By accepting this transaction the user will receive continuation
+            email , payment details and charged service fee below{" "}
+          </p>
+        </div>
+      </div>
       <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
         <button
           onClick={() => navigate("/transfer")}
