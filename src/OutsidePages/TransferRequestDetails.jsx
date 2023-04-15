@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { Validaterequest } from "../Service/Validate";
 import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../assets/iconic.svg";
+import { useNavigate } from "react-router-dom";
 const TransferRequestDetails = () => {
   const formik = useFormik({
     initialValues: {
@@ -28,11 +29,15 @@ const TransferRequestDetails = () => {
     validationSchema: Validaterequest,
     onSubmit: (values) => {},
   });
+  const navigate = useNavigate();
   return (
     <div className={`font-poppins   `}>
       <Nav />
       <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
-        <button className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg">
+        <button
+          onClick={() => navigate("/transfer")}
+          className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
+        >
           Back
         </button>
         <div className="flex justify-between text-[#262626] text-sm mt-10">
