@@ -36,7 +36,7 @@ const TransferRequestDetails = () => {
       <Nav />
       <div
         className={
-          load
+          !load
             ? "absolute top-0   bg-[#262626]/[0.8]    z-[90] h-screen w-full flex  justify-center items-center text-3xl"
             : "hidden"
         }
@@ -57,8 +57,8 @@ const TransferRequestDetails = () => {
                 className={
                   formik.errors.sendingcurrency &&
                   formik.touched.sendingcurrency
-                    ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    ? "  font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   //placeholder=" "
                 }
                 onChange={formik.handleChange}
@@ -72,7 +72,7 @@ const TransferRequestDetails = () => {
 
                 <option value="Pounds">Pounds</option>
               </select>
-              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-4 right-0 flex items-center px-2 text-[#707070]" />
             </span>
             <input
               type="number"
@@ -80,8 +80,8 @@ const TransferRequestDetails = () => {
               placeholder="00000"
               className={
                 formik.errors.amountsent && formik.touched.amountsent
-                  ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                  : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                  ? " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                  : " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
               }
               onChange={formik.handleChange}
               value={formik.values.amountsent}
