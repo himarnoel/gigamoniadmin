@@ -374,28 +374,28 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
-                id="bankName"
+                id="receiverbankName"
                 className={
-                  formik.errors.bankName && formik.touched.bankName
+                  formik.errors.receiverbankName && formik.touched.receiverbankName
                     ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                 }
                 placeholder=" "
                 onChange={formik.handleChange}
-                value={formik.values.bankName}
+                value={formik.values.receiverbankName}
                 onBlur={formik.handleBlur}
               />
               <label
-                for="name"
+                for="receiverbankName"
                 className={
-                  formik.errors.bankName && formik.touched.bankName
+                  formik.errors.receiverbankName && formik.touched.receiverbankName
                     ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 }
               >
                 Bank Name
               </label>
-              {formik.errors.bankName && formik.touched.bankName ? (
+              {formik.errors.receiverbankName && formik.touched.receiverbankName ? (
                 <p className="text-red-500 text-xs font-poppins">
                   {formik.errors.bankName}
                 </p>
@@ -406,30 +406,30 @@ const TransferRequestDetails = () => {
             <div className="relative z-0 mt-0">
               <input
                 type="text"
-                id="bankAddress"
+                id="receiverbankAddress"
                 className={
-                  formik.errors.bankAddress && formik.touched.bankAddress
+                  formik.errors.receiverbankAddress && formik.touched.receiverbankAddress
                     ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                 }
                 placeholder=" "
                 onChange={formik.handleChange}
-                value={formik.values.bankAddress}
+                value={formik.values.receiverbankAddress}
                 onBlur={formik.handleBlur}
               />
               <label
                 for="name"
                 className={
-                  formik.errors.bankAddress && formik.touched.bankAddress
+                  formik.errors.receiverbankAddress && formik.touched.receiverbankAddress
                     ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 }
               >
                 Bank Address
               </label>
-              {formik.errors.bankAddress && formik.touched.bankAddress ? (
+              {formik.errors.receiverbankAddress && formik.touched.receiverbankAddress ? (
                 <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.bankAddress}
+                  {formik.errors.receiverbankAddress}
                 </p>
               ) : (
                 ""
