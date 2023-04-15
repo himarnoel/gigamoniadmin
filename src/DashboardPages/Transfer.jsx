@@ -47,22 +47,17 @@ const Transfer = () => {
                 {item.transactionCreatedDate}
               </p>
               <p className="text-[#175873] font-semibold col-span-7">
-                Account name:{" "}
-                {item.receiverAcctName ?? "Lorem Ipsum University, London"}
+                Account name: {item.receiverAcctName}
               </p>
             </div>
             <div className="grid grid-cols-12 text-sm items-center text-[#262626]">
-              <p className="col-span-5">
-                Bank Name: {item.receiverBankName ?? " JPMorgan Chase Bank"}
-              </p>
+              <p className="col-span-5">Bank Name: {item.receiverBankName}</p>
               <p className="col-span-7">
-                Account number: {item.receiverAcctNo ?? "19200fkae"}
+                Account number: {item.receiverAcctNo}
               </p>
             </div>
             <div className="grid grid-cols-12 text-sm items-center">
-              <p className="col-span-5">
-                Payment Method: {item.paymentMethod ?? " Card Payment"}
-              </p>
+              <p className="col-span-5">Payment Method: {item.paymentMethod}</p>
               <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
                 $ {item.amountReceived}
               </p>
