@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import axios from "axios";
+import { baseurl } from "../Service/Validate";
 const Rejected = () => {
   const navigate = useNavigate();
   const [showactions, setshowactions] = useState(false);
@@ -40,66 +42,41 @@ const Rejected = () => {
 
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
-      <div className="flex mt-10 gap-x-20  items-center">
-        <div className="flex flex-col justify-between py-1 w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
-          <div className="grid grid-cols-12 text-sm items-center">
-            <p className="text-sm text-[#175873] col-span-5">
-              01/01/2023 11:30am
-            </p>
-            <p className="text-[#175873] font-semibold col-span-7">
-              Account name: Lorem Ipsum University, London{" "}
-            </p>
+      {data.map((item, i) => (
+        <div className="flex mt-10 gap-x-20  items-center">
+          <div className="flex flex-col justify-between w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
+            <div className="grid grid-cols-12 text-sm items-center">
+              <p className="text-sm text-[#175873] col-span-5">
+                {item.transactionCreatedDate}
+              </p>
+              <p className="text-[#175873] font-semibold col-span-7">
+                Account name: {item.receiverAcctName}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-12 text-sm items-center text-[#262626]">
+              <p className="col-span-5">Bank Name: {item.receiverBankName}</p>
+              <p className="col-span-7">
+                Account number: {item.receiverAcctNo}
+              </p>
+            </div>
+            <div className="grid grid-cols-12 text-sm items-center">
+              <p className="col-span-5">Payment Method: {item.paymentMethod}</p>
+              <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
+                $ {item.amountReceived}
+              </p>
+              <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">
+                view
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-12 text-sm items-center text-[#262626]">
-            <p className="col-span-5">Bank Name: JPMorgan Chase Bank</p>
-            <p className="col-span-7">Account number: 12345678901234</p>
-          </div>
-          <div className="grid grid-cols-12 text-sm items-center">
-            <p className="col-span-5">Payment Method: Card Payment</p>
-            <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
-              $ 2,000
-            </p>
-            <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">
-              view
-            </p>
-          </div>
-        </div>
-        <div className="relative">
-          <button className="bg-[#F8F8FF] flex font-semibold border-2 border-[#009186] text-[#009186] px-16 py-3 rounded-lg items-center text-sm ">
-            Accept
-          </button>
-        </div>
-      </div>
-      <div className="flex mt-10 gap-x-20  items-center">
-        <div className="flex flex-col justify-between py-1 w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
-          <div className="grid grid-cols-12 text-sm items-center">
-            <p className="text-sm text-[#175873] col-span-5">
-              01/01/2023 11:30am
-            </p>
-            <p className="text-[#175873] font-semibold col-span-7">
-              Account name: Lorem Ipsum University, London{" "}
-            </p>
-          </div>
-          <div className="grid grid-cols-12 text-sm items-center  text-[#262626]">
-            <p className="col-span-5">Bank Name: JPMorgan Chase Bank</p>
-            <p className="col-span-7">Account number: 12345678901234</p>
-          </div>
-          <div className="grid grid-cols-12 text-sm items-center">
-            <p className="col-span-5">Payment Method: Card Payment</p>
-            <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
-              $ 2,000
-            </p>
-            <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">
-              view
-            </p>
+          <div className="relative">
+            <button className="bg-[#F8F8FF] flex font-semibold border-2 border-[#009186] text-[#009186] px-16 py-3 rounded-lg items-center text-sm ">
+              Accept
+            </button>
           </div>
         </div>
-        <div className="relative">
-          <button className="bg-[#F8F8FF] flex font-semibold border-2 border-[#009186] text-[#009186] px-16 py-3 rounded-lg items-center text-sm ">
-            Accept
-          </button>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
