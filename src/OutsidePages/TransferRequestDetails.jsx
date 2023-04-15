@@ -14,14 +14,13 @@ const TransferRequestDetails = () => {
     console.log(state);
 
     formik.setValues({
-      name: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
-      bvn: "",
+      name: "sadfa",
+      email: "sdfad@gmail.com",
+      phoneNumber: "08088443186",
+      address: "dsfa",
+      bvn: "dfasd",
       amountsent: state.amountReceived ?? "",
-      receivingcurrency: "",
-      amountReceived: "",
+      bankAddress: "sdfad",
       receivername: state.receiverName ?? "",
       receiverphoneNumber: state.receiverPhone ?? "",
       receiveremailAddress: state.receiverEmail ?? "",
@@ -42,8 +41,7 @@ const TransferRequestDetails = () => {
       address: "",
       bvn: "",
       amountsent: "",
-      receivingcurrency: "",
-      amountReceived: "",
+      bankAddress: "",
       receivername: "",
       receiverphoneNumber: "",
       receiveremailAddress: "",
@@ -55,9 +53,11 @@ const TransferRequestDetails = () => {
       receiverswiftCode: "",
     },
     validationSchema: Validaterequest,
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      setload(!load);
+    },
   });
-
+  console.log(formik.errors);
   return (
     <div className={`font-poppins   `}>
       <Nav />
@@ -145,7 +145,10 @@ const TransferRequestDetails = () => {
           <p className="font-medium text-[#000000]">Local Currency: ₦</p>
         </div>
         {/* sdsdsd */}
-        <form className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20"
+        >
           <div className="h-[35rem]  flex flex-col justify-between">
             {" "}
             <p className="">Sender’s Details</p>

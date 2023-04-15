@@ -9,7 +9,7 @@ export const Validaterequest = yup.object().shape({
     .string()
     .email("please enter a valid email")
     .required("Please fill up this field"),
-  phonenumber: yup
+  phoneNumber: yup
     .string()
     .required("Please fill up this field")
     .matches(phoneRegExp, "Phone number is not valid")
@@ -17,13 +17,13 @@ export const Validaterequest = yup.object().shape({
   address: yup.string().required("Please fill up this field"),
   bvn: yup.string().required("Please fill up this field"),
   amountsent: yup.string().required("Please fill up this field"),
-  receivingcurrency: yup.string().required("Please fill up this field"),
-  amountReceived: yup.string().required("Please fill up this field"),
+  bankAddress: yup.string().required("Please fill up this field"),
+
   receivername: yup.string().required("Please fill up this field"),
   receiveremailAddress: yup
-  .string()
-  .email("please enter a valid email")
-  .required("Please fill up this field"),
+    .string()
+    .email("please enter a valid email")
+    .required("Please fill up this field"),
   receiveraccountName: yup.string().required("Please fill up this field"),
   receiveraccountNumber: yup.string().required("Please fill up this field"),
   receiverbankName: yup.string().required("Please fill up this field"),
@@ -31,4 +31,3 @@ export const Validaterequest = yup.object().shape({
   receiveriban: yup.string().required("Please fill up this field"),
   receiverswiftCode: yup.string().required("Please fill up this field"),
 });
-
