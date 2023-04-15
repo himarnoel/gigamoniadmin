@@ -251,7 +251,7 @@ const TransferRequestDetails = () => {
                 onBlur={formik.handleBlur}
               />
               <label
-                for="name"
+                for="receiverphoneNumber"
                 className={
                   formik.errors.receiverphoneNumber &&
                   formik.touched.receiverphoneNumber
