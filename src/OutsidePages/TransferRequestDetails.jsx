@@ -11,11 +11,19 @@ const TransferRequestDetails = () => {
       email: "",
       phoneNumber: "",
       address: "",
-      country: "",
       bvn: "",
       amountsent: "",
       receivingcurrency: "",
       amountReceived: "",
+      receivername: "",
+      receiverbankName: "",
+      receiverphoneNumber: "",
+      receiverbankAddress: "",
+      receiveremailAddress: "",
+      receiveriban: "",
+      receiveraccountName: "",
+      receiverswiftCode: "",
+      reciveraccountNumber: "",
     },
     validationSchema: Validaterequest,
     onSubmit: (values) => {},
@@ -227,6 +235,335 @@ const TransferRequestDetails = () => {
           <div className="2 ">
             {" "}
             <p className="">Receiver's Details</p>
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="receivername"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Receiver’s Name
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="phoneNumber"
+                className={
+                  formik.errors.phoneNumber && formik.touched.phoneNumber
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins   w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.phoneNumber}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.phoneNumber && formik.touched.phoneNumber
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Phone Number
+              </label>
+              {formik.errors.phoneNumber && formik.touched.phoneNumber ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.phoneNumber}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="emailAddress"
+                className={
+                  formik.errors.emailAddress && formik.touched.emailAddress
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.emailAddress}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.emailAddress && formik.touched.emailAddress
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Email Address
+              </label>
+              {formik.errors.emailAddress && formik.touched.emailAddress ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.emailAddress}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="accountName"
+                className={
+                  formik.errors.accountName && formik.touched.accountName
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.accountName}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.accountName && formik.touched.accountName
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Account Name
+              </label>
+              {formik.errors.accountName && formik.touched.accountName ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.accountName}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="accountNumber"
+                className={
+                  formik.errors.accountNumber && formik.touched.accountNumber
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.accountNumber}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.accountNumber && formik.touched.accountNumber
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Account Number
+              </label>
+              {formik.errors.accountNumber && formik.touched.accountNumber ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.accountNumber}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+          </div>
+          <div className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="bankName"
+                className={
+                  formik.errors.bankName && formik.touched.bankName
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.bankName}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.bankName && formik.touched.bankName
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Bank Name
+              </label>
+              {formik.errors.bankName && formik.touched.bankName ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.bankName}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="bankAddress"
+                className={
+                  formik.errors.bankAddress && formik.touched.bankAddress
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.bankAddress}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.bankAddress && formik.touched.bankAddress
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Bank Address
+              </label>
+              {formik.errors.bankAddress && formik.touched.bankAddress ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.bankAddress}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="iban"
+                className={
+                  formik.errors.iban && formik.touched.iban
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.iban}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.iban && formik.touched.iban
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                IBAN
+              </label>
+              {formik.errors.iban && formik.touched.iban ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.iban}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="swiftCode"
+                className={
+                  formik.errors.swiftCode && formik.touched.swiftCode
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.swiftCode}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.swiftCode && formik.touched.swiftCode
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                SwiftCode
+              </label>
+              {formik.errors.swiftCode && formik.touched.swiftCode ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.swiftCode}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 ">
+              <select
+                type="text"
+                id="country"
+                required
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  //placeholder=" "
+                }
+                onChange={formik.handleChange}
+                value={formik.values.country}
+                onBlur={formik.handleBlur}
+                placeholder="receivingcountry"
+              >
+                <option value=""></option>
+
+                <option value="Canada">Canada</option>
+              </select>
+              <label
+                for="country"
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
+                    : "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                }
+              >
+                Receiving Country
+              </label>
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
+              {formik.errors.country && formik.touched.country ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.country}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </form>
       </div>
