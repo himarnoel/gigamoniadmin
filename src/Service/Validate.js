@@ -20,15 +20,15 @@ export const Validaterequest = yup.object().shape({
   receivingcurrency: yup.string().required("Please fill up this field"),
   amountReceived: yup.string().required("Please fill up this field"),
   receivername: yup.string().required("Please fill up this field"),
-  bankName: yup.string().required("Please fill up this field"),
-  bankAddress: yup.string().required("Please fill up this field"),
-  emailAddress: yup
-    .string()
-    .email("please enter a valid email")
-    .required("Please fill up this field"),
-  iban: yup.string().required("Please fill up this field"),
-  accountName: yup.string().required("Please fill up this field"),
-  swiftCode: yup.string().required("Please fill up this field"),
-  accountNumber: yup.string().required("Please fill up this field"),
-  country: yup.string().required("Please fill up this field"),
+  receiveremailAddress: yup
+  .string()
+  .email("please enter a valid email")
+  .required("Please fill up this field"),
+  receiveraccountName: yup.string().required("Please fill up this field"),
+  receiveraccountNumber: yup.string().required("Please fill up this field"),
+  receiverbankName: yup.string().required("Please fill up this field"),
+  receiverbankAddress: yup.string().required("Please fill up this field"),
+  receiveriban: yup.string().required("Please fill up this field"),
+  receiverswiftCode: yup.string().required("Please fill up this field"),
 });
+
