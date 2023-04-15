@@ -7,6 +7,7 @@ const Transfer = () => {
   const [showactions, setshowactions] = useState(false);
   const [load, setload] = useState(false);
   const [data, setdata] = useState([]);
+  const [check, setcheck] = useState(0);
   useEffect(() => {
     setload(true);
     axios
@@ -25,9 +26,10 @@ const Transfer = () => {
         setload(false);
       });
   }, []);
-  const openUp = (i) => {
-    if (i===1) {
-
+  const openUp = (index) => {
+    setcheck(index);
+    if (index === index) {
+      setshowactions(!showactions);
     }
   };
   return (
@@ -44,8 +46,8 @@ const Transfer = () => {
 
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
-      {data.map((item, i) => (
-        <div className="flex mt-10 gap-x-10  items-center">
+      {data.map((item, index) => (
+        <div key={index} className="flex mt-10 gap-x-10  items-center">
           <div className="flex flex-col justify-between w-full min-h-[7.6rem]  pl-4 py-1 rounded-lg border-2 border-[#009186]">
             <div className="grid grid-cols-12 text-sm items-center">
               <p className="text-sm text-[#175873] col-span-5">
@@ -73,7 +75,7 @@ const Transfer = () => {
           </div>
           <div className="relative">
             <button
-              onClick={() => openUp(i)}
+              onClick={() => openUp(index)}
               className="text-[#F8F8FF] flex bg-[#009186] px-14 py-3 rounded-lg items-center text-sm "
             >
               <p className="ss"> Action</p>{" "}
@@ -81,8 +83,10 @@ const Transfer = () => {
             </button>
             <div
               className={
-                showactions
-                  ? "rounded-lg bg-[#F8F8FF] absolute z-[10] w-full top-10 px-4  h-[8rem] flex justify-between py-8  flex-col"
+                index === check
+                  ? showactions
+                    ? "rounded-lg bg-[#F8F8FF] absolute z-[10] w-full top-10 px-4  h-[8rem] flex justify-between py-8  flex-col"
+                    : "hidden"
                   : "hidden"
               }
             >
