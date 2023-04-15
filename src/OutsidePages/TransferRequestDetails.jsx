@@ -4,9 +4,12 @@ import { useFormik } from "formik";
 import { Validaterequest } from "../Service/Validate";
 import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../assets/iconic.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const TransferRequestDetails = () => {
+  const navigate = useNavigate();
   const [load, setload] = useState(false);
+  const { state } = useLocation();
+  console.log(state);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -30,7 +33,7 @@ const TransferRequestDetails = () => {
     validationSchema: Validaterequest,
     onSubmit: (values) => {},
   });
-  const navigate = useNavigate();
+
   return (
     <div className={`font-poppins   `}>
       <Nav />
@@ -75,7 +78,6 @@ const TransferRequestDetails = () => {
               <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
             </span>
             <input
-        
               type="number"
               id="amountsent"
               placeholder="00000"
