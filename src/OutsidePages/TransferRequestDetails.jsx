@@ -21,11 +21,8 @@ const TransferRequestDetails = () => {
       receiveraccountName: "",
       reciveraccountNumber: "",
       receiverbankName: "",
-
       receiverbankAddress: "",
-
       receiveriban: "",
-
       receiverswiftCode: "",
     },
     validationSchema: Validaterequest,
