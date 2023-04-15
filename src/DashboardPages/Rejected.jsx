@@ -13,7 +13,7 @@ const Rejected = () => {
   useEffect(() => {
     setload(true);
     axios
-      .get(`${baseurl}/gadmin/pending/`, {
+      .get(`${baseurl}/gadmin/rejected/`, {
         headers: {
           Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
         },
