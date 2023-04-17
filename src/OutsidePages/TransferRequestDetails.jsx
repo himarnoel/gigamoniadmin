@@ -19,7 +19,7 @@ const TransferRequestDetails = () => {
 
   useEffect(() => {
     console.log(state);
-
+    window.scroll({ top: 0, left: 0 });
     formik.setValues({
       name: "sadfa",
       email: "sdfad@gmail.com",
