@@ -6,9 +6,17 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../assets/iconic.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import RingLoader from "./../../node_modules/react-spinners/esm/RingLoader";
+import RingLoader from "react-spinners/esm/RingLoader";
 
-const completedTransactionDetails = () => {
+const CompletedTransactionDetails = () => {
+  const navigate = useNavigate();
+  const [overlay, setoverlay] = useState(false);
+  const [show, setshow] = useState(false);
+  const { state } = useLocation();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
   return (
     <div className={`font-poppins   `}>
       <Nav />
@@ -658,4 +666,4 @@ const completedTransactionDetails = () => {
   );
 };
 
-export default completedTransactionDetails;
+export default CompletedTransactionDetails;
