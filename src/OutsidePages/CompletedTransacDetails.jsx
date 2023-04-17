@@ -43,6 +43,7 @@ const CompletedTransacDetails = () => {
       body.style.overflow = "hidden";
       setoverlay(true);
       setshow(true);
+      
     },
   });
   return (

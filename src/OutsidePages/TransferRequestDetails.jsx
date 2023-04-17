@@ -101,6 +101,35 @@ const TransferRequestDetails = () => {
         setshow(true);
       });
   };
+  const rejectTransaction = () => {
+    setshow(true);
+    axios
+      .patch(
+        `${baseurl}/gadmin/${state.transactionID}/transaction/`,
+        {
+          amountSent: formik.values.amountsent,
+          status: "Rejected",
+        },
+
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        body.style.overflow = "";
+        setoverlay(false);
+        setshow(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        body.style.overflow = "";
+        setoverlay(false);
+        setshow(true);
+      });
+  };
   return (
     <div className={`font-poppins   `}>
       <Nav />
@@ -414,10 +443,16 @@ const TransferRequestDetails = () => {
                 />
               </span>
 
-              <button className="px-2 py-1 text-[#00913E] font-semibold mt-3">
+              <button
+                onClick={() => rejectTransaction()}
+                className="px-2 py-1 text-[#00913E] font-semibold mt-3"
+              >
                 Accept
               </button>
-              <button className="px-2 py-1 text-[#D80010] font-semibold ">
+              <button
+                onClick={() => rejectTransaction()}
+                className="px-2 py-1 text-[#D80010] font-semibold "
+              >
                 Cancel
               </button>
             </div>
