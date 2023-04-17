@@ -1,4 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Nav from "../Components/Nav";
+import { useFormik } from "formik";
+import { Validaterequest, baseurl } from "../Service/Validate";
+import { RiArrowDownSLine } from "react-icons/ri";
+import trans from "../assets/iconic.svg";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import RingLoader from "./../../node_modules/react-spinners/esm/RingLoader";
 
 const completedTransactionDetails = () => {
   return (
