@@ -11,6 +11,7 @@ const TransferRequestDetails = () => {
   const navigate = useNavigate();
   const [overlay, setoverlay] = useState(false);
   const [show, setshow] = useState(false);
+
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();

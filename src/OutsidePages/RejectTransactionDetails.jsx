@@ -119,7 +119,7 @@ const RejectTransactionDetails = () => {
         </div>
         <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
           <button
-            onClick={() => navigate("/transfer")}
+            onClick={() => navigate("/rejected")}
             className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
           >
             Back
