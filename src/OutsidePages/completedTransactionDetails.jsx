@@ -17,6 +17,33 @@ const CompletedTransactionDetails = () => {
   const scrollBlocked = useRef();
   const html = safeDocument.documentElement;
   const { body } = safeDocument;
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      bvn: "",
+      amountsent: "",
+      bankAddress: "",
+      receivername: "",
+      receiverphoneNumber: "",
+      receiveremailAddress: "",
+      receiveraccountName: "",
+      receiveraccountNumber: "",
+      receiverbankName: "",
+      receiverbankAddress: "",
+      receiveriban: "",
+      receiverswiftCode: "",
+    },
+    validationSchema: Validaterequest,
+    onSubmit: (values) => {
+      window.scroll({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
+      setoverlay(true);
+      setshow(true);
+    },
+  });
   return (
     <div className={`font-poppins   `}>
       <Nav />
