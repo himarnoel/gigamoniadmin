@@ -9,6 +9,7 @@ import Completed from "./DashboardPages/Completed";
 import MainPage from "./Pages/MainPage";
 import Home from "./DashboardPages/Home";
 import PendingTransactionDetails from "./OutsidePages/PendingTransactionDetails";
+import RejectTransactionDetails from "./OutsidePages/RejectTransactionDetails";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           element={<PendingTransactionDetails />}
         />
 
+        <Route
+          path="/rejecttransactiondetails"
+          element={<RejectTransactionDetails />}
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
