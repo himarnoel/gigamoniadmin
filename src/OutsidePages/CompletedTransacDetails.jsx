@@ -12,6 +12,7 @@ const CompletedTransacDetails = () => {
   const [load, setload] = useState(false);
   const [overlay, setoverlay] = useState(false);
   const [show, setshow] = useState(false);
+  const navigate = useNavigate();
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();
@@ -121,7 +122,7 @@ const CompletedTransacDetails = () => {
         </div>
         <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
           <button
-            onClick={() => navigate("/transfer")}
+            onClick={() => navigate("/completed")}
             className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
           >
             Back
