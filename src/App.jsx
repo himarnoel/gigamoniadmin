@@ -10,6 +10,7 @@ import MainPage from "./Pages/MainPage";
 import Home from "./DashboardPages/Home";
 import PendingTransactionDetails from "./OutsidePages/PendingTransactionDetails";
 import RejectTransactionDetails from "./OutsidePages/RejectTransactionDetails";
+import completedTransactionDetails from "./OutsidePages/completedTransactionDetails";
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
           path="/rejecttransactiondetails"
           element={<RejectTransactionDetails />}
         />
+        <Route
+          path="/completedtransactiondetails"
+          element={<completedTransactionDetails />}
+        />
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
