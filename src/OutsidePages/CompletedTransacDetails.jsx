@@ -147,7 +147,7 @@ const CompletedTransacDetails = () => {
             onSubmit={formik.handleSubmit}
             className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20"
           >
-            <div className="h-[28rem]  flex flex-col justify-between">
+            <div className="h-[23.6rem]  flex flex-col justify-between">
               {" "}
               <p className="">Sender’s Details</p>
               <div className="relative z-0 mt-0">
