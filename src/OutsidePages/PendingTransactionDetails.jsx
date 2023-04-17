@@ -311,7 +311,10 @@ const PendingTransactionDetails = () => {
                   ""
                 )}
               </div>
-              <button className="bg-[#009186] text-[#F8F8FF] w-fit py-3 px-20 rounded-lg mt-2">
+              <button
+                type="submit"
+                className="bg-[#009186] text-[#F8F8FF] w-fit py-3 px-20 rounded-lg mt-2 outline-none focus:outline-none"
+              >
                 Done
               </button>
             </div>
@@ -562,7 +565,7 @@ const PendingTransactionDetails = () => {
                 {formik.errors.receiverbankName &&
                 formik.touched.receiverbankName ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.bankName}
+                    {formik.errors.receiverbankName}
                   </p>
                 ) : (
                   ""
