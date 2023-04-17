@@ -1,6 +1,43 @@
-import React from "react";
-
+import React, { useEffect, useRef, useState } from "react";
+import Nav from "../Components/Nav";
+import { useFormik } from "formik";
+import { Validaterequest, baseurl } from "../Service/Validate";
+import { RiArrowDownSLine } from "react-icons/ri";
+import trans from "../assets/iconic.svg";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import RingLoader from "./../../node_modules/react-spinners/esm/RingLoader";
 const PendingTransactionDetails = () => {
+  const [overlay, setoverlay] = useState(false);
+  const [show, setshow] = useState(false);
+  const [load, setload] = useState(false);
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      bvn: "",
+      amountsent: "",
+      bankAddress: "",
+      receivername: "",
+      receiverphoneNumber: "",
+      receiveremailAddress: "",
+      receiveraccountName: "",
+      receiveraccountNumber: "",
+      receiverbankName: "",
+      receiverbankAddress: "",
+      receiveriban: "",
+      receiverswiftCode: "",
+    },
+    validationSchema: Validaterequest,
+    onSubmit: (values) => {
+      window.scroll({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
+      setoverlay(true);
+      setshow(true);
+    },
+  });
   return (
     <div>
       {" "}
@@ -85,15 +122,21 @@ const PendingTransactionDetails = () => {
           </button>
           <div className="flex justify-between text-[#262626] text-sm mt-10">
             <div className="flex  gap-x-20">
-              <p className="">Transaction ID :1234567890987</p>
+              <p className="">Transaction ID : 1234567890987</p>
               <p className="font-medium text-[#000000]">Amount: $100</p>
             </div>
             <p className="ss">Date: 01/01/2023 11:30am</p>
           </div>
 
-          <div className="flex  gap-x-[3.9rem] text-sm mt-10 ">
-            <p className="">Mode of payment: Card Payment</p>
-            <p className="font-medium text-[#000000]">Local Currency: ₦</p>
+          <div className="flex justify-between  gap-x-[3.9rem] text-sm mt-10 ">
+            <div className="flex  gap-x-14">
+              <p className="">Mode of payment: Card Payment</p>
+              <p className="font-medium text-[#000000]">Local Currency: ₦</p>
+            </div>
+            <b className="cc">
+              Proof of payment status:{" "}
+              <b className="text-[#D80010]">Not uploaded </b>
+            </b>
           </div>
           {/* sdsdsd */}
           <form

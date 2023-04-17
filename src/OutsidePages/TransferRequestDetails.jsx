@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Nav from "../Components/Nav";
 import { useFormik } from "formik";
-import { Validaterequest } from "../Service/Validate";
+import { Validaterequest, baseurl } from "../Service/Validate";
 import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../assets/iconic.svg";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -64,20 +64,18 @@ const TransferRequestDetails = () => {
       window.scroll({ top: 0, left: 0 });
       body.style.overflow = "hidden";
       setoverlay(true);
+      setshow(true);
     },
   });
   const closeModal = () => {
     body.style.overflow = "";
-    setshow(true);
-  
-
+    setoverlay(false);
   };
   const processTransaction = () => {
-    body.style.overflow = "";
-    setoverlay(false);
+    setshow(false);
     axios
-      .post(
-        `${baseurl}/gadmin/completed/`,
+      .patch(
+        `${baseurl}/gadmin/${state.transactionID}/transaction/`,
         {
           amountSent: formik.values.amountsent,
           status: "Update",
@@ -91,9 +89,15 @@ const TransferRequestDetails = () => {
       )
       .then((res) => {
         console.log(res);
+        body.style.overflow = "";
+        setoverlay(false);
+        setshow(true);
       })
       .catch((e) => {
         console.log(e);
+        body.style.overflow = "";
+        setoverlay(false);
+        setshow(true);
       });
   };
   return (

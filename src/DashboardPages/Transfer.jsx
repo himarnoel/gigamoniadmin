@@ -34,6 +34,7 @@ const Transfer = () => {
   };
   const transferRequest = (index, item) => {
     navigate("/transferrequestdetails", { state: item });
+    
   };
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
@@ -50,12 +51,11 @@ const Transfer = () => {
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
       {data.map((item, index) => (
-        <div
-          key={index}
-          onClick={() => transferRequest(index, item)}
-          className="flex mt-10 gap-x-10  items-center cursor-pointer"
-        >
-          <div className="flex flex-col justify-between w-full min-h-[7.6rem]  pl-4 py-1 rounded-lg border-2 border-[#009186]">
+        <div key={index} className="flex mt-10 gap-x-10  items-center ">
+          <div
+            onClick={() => transferRequest(index, item)}
+            className="flex flex-col justify-between w-full min-h-[7.6rem] cursor-pointer  pl-4 py-1 rounded-lg border-2 border-[#009186]"
+          >
             <div className="grid grid-cols-12 text-sm items-center">
               <p className="text-sm text-[#175873] col-span-5">
                 {item.transactionCreatedDate}
