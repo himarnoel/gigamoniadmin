@@ -8,6 +8,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import RingLoader from "./../../node_modules/react-spinners/esm/RingLoader";
 const RejectTransactionDetails = () => {
+    const navigate = useNavigate();
+    const [overlay, setoverlay] = useState(false);
+    const [show, setshow] = useState(false);
+    const { state } = useLocation();
+    const safeDocument = typeof document !== "undefined" ? document : {};
+    const scrollBlocked = useRef();
   return (
     <div>
     {" "}
