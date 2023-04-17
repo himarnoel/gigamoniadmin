@@ -143,7 +143,7 @@ const PendingTransactionDetails = () => {
             onSubmit={formik.handleSubmit}
             className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20"
           >
-            <div className="h-[35rem]  flex flex-col justify-between">
+            <div className="h-[28rem]  flex flex-col justify-between">
               {" "}
               <p className="">Sender’s Details</p>
               <div className="relative z-0 mt-0">
@@ -311,57 +311,11 @@ const PendingTransactionDetails = () => {
                   ""
                 )}
               </div>
-              <div className="flex flex-col bg-[#DAF2F1] rounded-2xl w-full h-[12rem] items-start  justify-evenly px-6">
-                <p className="text-sm text-[#87ACA3]">Add Service Fee</p>
-
-                <span className="flex w-fit ">
-                  <span className="relative z-0 ">
-                    <select
-                      type="text"
-                      id="sendingcurrency"
-                      className={
-                        formik.errors.sendingcurrency &&
-                        formik.touched.sendingcurrency
-                          ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                          : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        //placeholder=" "
-                      }
-                      onChange={formik.handleChange}
-                      value={formik.values.sendingcurrency}
-                      onBlur={formik.handleBlur}
-                      placeholder="receivingcountry"
-                    >
-                      <option value="NGN" selected>
-                        NGN
-                      </option>
-
-                      <option value="Pounds">Pounds</option>
-                    </select>
-                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
-                  </span>
-                  <input
-                    type="number"
-                    id="amountsent"
-                    placeholder="00000"
-                    className={
-                      formik.errors.amountsent && formik.touched.amountsent
-                        ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    }
-                    onChange={formik.handleChange}
-                    value={formik.values.amountsent}
-                    onBlur={formik.handleBlur}
-                  />
-                </span>
-
-                <button className="px-2 py-1 text-[#00913E] font-semibold mt-3">
-                  Accept
-                </button>
-                <button className="px-2 py-1 text-[#D80010] font-semibold ">
-                  Cancel
-                </button>
-              </div>
+              <button className="bg-[#009186] text-[#F8F8FF] w-fit py-3 px-20 rounded-lg mt-2">
+                Done
+              </button>
             </div>
+
             <div className="h-[35rem]  flex flex-col justify-between">
               {" "}
               <p className="">Receiver's Details</p>
