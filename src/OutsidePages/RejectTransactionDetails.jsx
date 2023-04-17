@@ -609,6 +609,6 @@ const RejectTransactionDetails = () => {
     </div>
   </div>
 );
-};s
+};
 
 export default RejectTransactionDetails
