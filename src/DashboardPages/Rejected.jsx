@@ -96,7 +96,12 @@ const Rejected = () => {
       </div>
       {data.map((item, i) => (
         <div key={i} className="flex mt-10 gap-x-20  items-center">
-          <div  className="flex flex-col justify-between w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]">
+          <div
+            onClick={() =>
+              navigate("/rejecttransactiondetails", { state: item })
+            }
+            className="flex flex-col justify-between w-full min-h-[7rem] cursor-pointer  pl-4  rounded-lg border-2 border-[#009186]"
+          >
             <div className="grid grid-cols-12 text-sm items-center">
               <p className="text-sm text-[#175873] col-span-5">
                 {item.transactionCreatedDate}
