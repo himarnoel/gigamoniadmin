@@ -444,12 +444,13 @@ const TransferRequestDetails = () => {
               </span>
 
               <button
-                onClick={() => rejectTransaction()}
+                type="submit"
                 className="px-2 py-1 text-[#00913E] font-semibold mt-3"
               >
                 Accept
               </button>
               <button
+                type="button"
                 onClick={() => rejectTransaction()}
                 className="px-2 py-1 text-[#D80010] font-semibold "
               >
