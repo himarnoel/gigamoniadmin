@@ -42,7 +42,7 @@ const Rejected = () => {
     setoverlay(true);
     axios
       .patch(
-        `${baseurl}/gadmin/${item.transactionID}/transaction/`,
+        `${baseurl}/gadmin/${item.transactionID}/rejected/`,
         {
           amountSent: item.amountSent,
           status: "Update",
@@ -59,7 +59,7 @@ const Rejected = () => {
         body.style.overflow = "";
         setoverlay(false);
 
-        toast.success("Yes");
+        toast.success("Accepted successfully");
         //Go back to previous route
       })
       .catch((e) => {
@@ -67,7 +67,7 @@ const Rejected = () => {
         body.style.overflow = "";
         setoverlay(false);
 
-        toast.error("error");
+        toast.error("An error occurred");
       });
   };
   return (

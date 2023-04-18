@@ -12,7 +12,6 @@ const TransferRequestDetails = () => {
   const navigate = useNavigate();
   const [overlay, setoverlay] = useState(false);
   const [show, setshow] = useState(false);
-
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();
@@ -28,7 +27,8 @@ const TransferRequestDetails = () => {
       phoneNumber: "08088443186",
       address: "dsfa",
       bvn: "dfasd",
-      amountsent: state.amountReceived ?? "",
+      amountsent: state.amountSent ?? "",
+      amountReceived: state.amountReceived ?? "",
       bankAddress: "sdfad",
       receivername: state.receiverName ?? "",
       receiverphoneNumber: state.receiverPhone ?? "",
@@ -49,6 +49,7 @@ const TransferRequestDetails = () => {
       phoneNumber: "",
       address: "",
       bvn: "",
+      amountReceived: "",
       amountsent: "",
       bankAddress: "",
       receivername: "",
@@ -127,7 +128,7 @@ const TransferRequestDetails = () => {
         setoverlay(false);
         setshow(true);
         toast.success("Yes");
-        navigate(-1);//Go back to previous route
+        navigate(-1); //Go back to previous route
       })
       .catch((e) => {
         console.log(e);
@@ -225,14 +226,16 @@ const TransferRequestDetails = () => {
         <div className="flex justify-between text-[#262626] text-sm mt-10">
           <div className="flex  gap-x-20">
             <p className="">Transaction ID :1234567890987</p>
-            <p className="font-medium text-[#000000]">Amount: $100</p>
+            <p className="font-medium text-[#000000]">
+              Amount: $ {formik.values.amountReceived.toLocaleString()}
+            </p>
           </div>
           <p className="ss">Date: 01/01/2023 11:30am</p>
         </div>
 
         <div className="flex  gap-x-[3.9rem] text-sm mt-10 ">
           <p className="">Mode of payment: Card Payment</p>
-          <p className="font-medium text-[#000000]">Local Currency: ₦</p>
+          <p className="font-medium text-[#000000]">Local Currency: ₦ {formik.values.amountsent.toLocaleString()}</p>
         </div>
         {/* sdsdsd */}
         <form

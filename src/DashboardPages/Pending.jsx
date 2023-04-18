@@ -25,6 +25,9 @@ const Pending = () => {
         setload(false);
       });
   }, []);
+  const completedTransaction = () => {
+    
+  };
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <p className="text-2xl font-semibold text-[#175873]">
@@ -73,7 +76,10 @@ const Pending = () => {
             </div>
           </div>
           <div className="relative">
-            <button className="text-[#F8F8FF] flex bg-[#009186] px-16 py-3 rounded-lg items-center text-sm">
+            <button
+              onClick={() => completedTransaction(item)}
+              className="text-[#F8F8FF] flex bg-[#009186] px-16 py-3 rounded-lg items-center text-sm"
+            >
               Done
             </button>
           </div>

@@ -17,6 +17,7 @@ export const Validaterequest = yup.object().shape({
   address: yup.string().required("Please fill up this field"),
   bvn: yup.string().required("Please fill up this field"),
   amountsent: yup.string().required("Please fill up this field"),
+  amountReceived: yup.string().required("Please fill up this field"),
   bankAddress: yup.string().required("Please fill up this field"),
   receiverphoneNumber: yup
     .string()
