@@ -7,6 +7,7 @@ import trans from "../assets/iconic.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import RingLoader from "./../../node_modules/react-spinners/esm/RingLoader";
+import { toast } from "react-toastify";
 const TransferRequestDetails = () => {
   const navigate = useNavigate();
   const [overlay, setoverlay] = useState(false);
@@ -102,7 +103,10 @@ const TransferRequestDetails = () => {
       });
   };
   const rejectTransaction = () => {
-    setshow(true);
+    window.scroll({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+    setoverlay(true);
+    setshow(false);
     axios
       .patch(
         `${baseurl}/gadmin/${state.transactionID}/transaction/`,
@@ -121,13 +125,16 @@ const TransferRequestDetails = () => {
         console.log(res);
         body.style.overflow = "";
         setoverlay(false);
-        setshow(false);
+        setshow(true);
+        toast.success("Yes");
+        navigate(-1);//Go back to previous route
       })
       .catch((e) => {
         console.log(e);
         body.style.overflow = "";
         setoverlay(false);
         setshow(true);
+        toast.error("error");
       });
   };
   return (

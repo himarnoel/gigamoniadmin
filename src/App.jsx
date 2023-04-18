@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import TransferRequestDetails from "./OutsidePages/TransferRequestDetails";
 import Transfer from "./DashboardPages/Transfer";
 import Pending from "./DashboardPages/Pending";
@@ -16,6 +17,7 @@ import CompletedTransacDetails from "./OutsidePages/CompletedTransacDetails";
 function App() {
   return (
     <div>
+      <ToastContainer position="top-center" autoClose={2000} />
       <Routes>
         <Route element={<MainPage />}>
           <Route path="/" element={<Home />} />
