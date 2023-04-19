@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,6 +15,13 @@ import RejectTransactionDetails from "./OutsidePages/RejectTransactionDetails";
 import CompletedTransacDetails from "./OutsidePages/CompletedTransacDetails";
 
 function App() {
+  useEffect(() => {
+    localStorage.setItem(
+      "LoggedIntoken",
+      "0ac08e48e8de165569040ae1d5337a4a608a9698"
+    );
+  }, []);
+
   return (
     <div>
       <ToastContainer position="top-center" autoClose={2000} />

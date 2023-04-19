@@ -95,6 +95,7 @@ const TransferRequestDetails = () => {
         body.style.overflow = "";
         setoverlay(false);
         setshow(true);
+        navigate(-1);
       })
       .catch((e) => {
         console.log(e);
@@ -235,7 +236,9 @@ const TransferRequestDetails = () => {
 
         <div className="flex  gap-x-[3.9rem] text-sm mt-10 ">
           <p className="">Mode of payment: Card Payment</p>
-          <p className="font-medium text-[#000000]">Local Currency: ₦ {formik.values.amountsent.toLocaleString()}</p>
+          <p className="font-medium text-[#000000]">
+            Local Currency: ₦ {formik.values.amountsent.toLocaleString()}
+          </p>
         </div>
         {/* sdsdsd */}
         <form

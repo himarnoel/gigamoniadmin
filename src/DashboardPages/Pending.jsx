@@ -3,11 +3,19 @@ import React, { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { baseurl } from "../Service/Validate";
+import RingLoader from "react-spinners/esm/RingLoader";
+import { toast } from "react-toastify";
 const Pending = () => {
   const [showactions, setshowactions] = useState(false);
   const [load, setload] = useState(false);
+  const [overlay, setoverlay] = useState(false);
   const [data, setdata] = useState([]);
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
   useEffect(() => {
+    fetchPending();
+  }, []);
+  const fetchPending = () => {
     setload(true);
     axios
       .get(`${baseurl}/gadmin/pending/`, {
@@ -24,12 +32,51 @@ const Pending = () => {
         console.log(e);
         setload(false);
       });
-  }, []);
-  const completedTransaction = () => {
-    
+  };
+  const completedTransaction = (item) => {
+    window.scroll({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+    setload(true);
+    axios
+      .patch(
+        `${baseurl}/gadmin/${item.transactionID}/pending/`,
+        {
+          amountSent: item.amountSent,
+          status: "Completed",
+        },
+
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        body.style.overflow = "";
+        setload(false);
+        toast.success("Transaction completed");
+        fetchPending();
+      })
+      .catch((e) => {
+        console.log(e);
+        body.style.overflow = "";
+        setload(false);
+        toast.error("An error occurred");
+      });
   };
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
+      <div
+        className={
+          load
+            ? "absolute top-0 left-0 right-0 bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} />
+      </div>
+
       <p className="text-2xl font-semibold text-[#175873]">
         Pending Transactions
       </p>
