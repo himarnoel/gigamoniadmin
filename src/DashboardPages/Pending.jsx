@@ -95,7 +95,7 @@ const Pending = () => {
             onClick={() =>
               navigate("/pendingtransactiondetails", { state: item })
             }
-            className="flex flex-col justify-between w-full min-h-[7rem]  pl-4  rounded-lg border-2 border-[#009186]"
+            className="flex flex-col justify-between w-full min-h-[7rem] cursor-pointer pl-4  rounded-lg border-2 border-[#009186]"
           >
             <div className="grid grid-cols-12 text-sm items-center">
               <p className="text-sm text-[#175873] col-span-5">

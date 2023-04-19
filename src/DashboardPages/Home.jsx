@@ -8,7 +8,11 @@ import RingLoader from "react-spinners/esm/RingLoader";
 const Home = (props) => {
   const [load, setload] = useState(false);
   const [data, setdata] = useState({});
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
   useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
     setload(true);
     axios
       .get(`${baseurl}/gadmin/summary/`, {
@@ -20,10 +24,12 @@ const Home = (props) => {
         console.log(res.data);
         setdata(res.data);
         setload(false);
+        body.style.overflow = "";
       })
       .catch((e) => {
         console.log(e);
         setload(false);
+        body.style.overflow = "";
       });
   }, []);
 
