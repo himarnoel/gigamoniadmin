@@ -86,7 +86,21 @@ const CompletedTransacDetails = () => {
               <p className="">Transaction ID : {state.transactionID}</p>{" "}
               <b className="cc">
                 Proof of payment status:{" "}
-                <b className="text-[#D80010]">{state.paymentMethod=="Bank Transfer"?"gdhd":"Not Needed" }</b>
+                <b
+                  className={
+                    state.paymentMethod == "Bank Transfer"
+                      ? state.paymentProof
+                        ? "text-[#00913E] "
+                        : "text-[#D80010]"
+                      : "text-[#D80010]"
+                  }
+                >
+                  {state.paymentMethod == "Bank Transfer"
+                    ? state.paymentProof
+                      ? "Uploaded"
+                      : "Not Uploaded"
+                    : "Not Needed"}
+                </b>
               </b>
             </div>
           </div>
