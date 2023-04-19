@@ -3,6 +3,7 @@ import Nav from "../Components/Nav";
 import SideNav from "../Components/SideNav";
 import axios from "axios";
 import { baseurl } from "../Service/Validate";
+import RingLoader from "react-spinners/esm/RingLoader";
 
 const Home = (props) => {
   const [load, setload] = useState(false);
@@ -28,6 +29,16 @@ const Home = (props) => {
 
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
+      <div
+        className={
+          load
+            ? "absolute top-0 left-0 right-0 bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} />
+      </div>
+
       <p className="text-2xl font-semibold text-[#175873]">Activity Overview</p>
       <div className="flex w-full gap-x-4 mt-8">
         <div className="rounded-lg bg-[#87ACA3] flex flex-col    pt-10 items-center h-[10rem] w-[20rem] px-2 text-[#F8F8FF]">

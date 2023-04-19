@@ -39,7 +39,7 @@ const Rejected = () => {
     console.log(item.transactionID);
     window.scroll({ top: 0, left: 0 });
     body.style.overflow = "hidden";
-    setoverlay(true);
+    load(true);
     axios
       .patch(
         `${baseurl}/gadmin/${item.transactionID}/rejected/`,
@@ -57,7 +57,7 @@ const Rejected = () => {
       .then((res) => {
         console.log(res);
         body.style.overflow = "";
-        setoverlay(false);
+        load(false);
 
         toast.success("Accepted successfully");
         //Go back to previous route
@@ -65,7 +65,7 @@ const Rejected = () => {
       .catch((e) => {
         console.log(e.response);
         body.style.overflow = "";
-        setoverlay(false);
+        load(false);
 
         toast.error("An error occurred");
       });
@@ -73,9 +73,8 @@ const Rejected = () => {
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
       <div
-        onClick={() => setoverlay(false)}
         className={
-          overlay
+          load
             ? "absolute bg-cover bg-[#262626]/[0.8] top-[-7.2rem] lg:top-[0rem] z-[90] left-0 h-screen w-full flex  justify-center items-center "
             : "hidden"
         }

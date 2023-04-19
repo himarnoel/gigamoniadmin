@@ -4,6 +4,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { baseurl } from "../Service/Validate";
 import axios from "axios";
+import RingLoader from "react-spinners/esm/RingLoader";
 const Completed = () => {
   const navigate = useNavigate();
   const [showactions, setshowactions] = useState(false);
@@ -29,6 +30,15 @@ const Completed = () => {
   }, []);
   return (
     <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
+      <div
+        className={
+          load
+            ? "absolute top-0 left-0 right-0 bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} />
+      </div>
       <p className="text-2xl font-semibold text-[#175873]">
         Pending Transactions
       </p>
