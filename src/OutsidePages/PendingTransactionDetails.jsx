@@ -27,7 +27,8 @@ const PendingTransactionDetails = () => {
       phoneNumber: "08088443186",
       address: "dsfa",
       bvn: "dfasd",
-      amountsent: state.amountReceived ?? "",
+      amountsent: state.amountSent ?? "",
+      amountReceived: state.amountReceived,
       bankAddress: "sdfad",
       receivername: state.receiverName ?? "",
       receiverphoneNumber: state.receiverPhone ?? "",
@@ -49,6 +50,7 @@ const PendingTransactionDetails = () => {
       address: "",
       bvn: "",
       amountsent: "",
+      amountReceived: "",
       bankAddress: "",
       receivername: "",
       receiverphoneNumber: "",
@@ -64,10 +66,37 @@ const PendingTransactionDetails = () => {
     onSubmit: (values) => {
       window.scroll({ top: 0, left: 0 });
       body.style.overflow = "hidden";
-      setoverlay(true);
-      setshow(true);
+      setload(true);
+      axios
+        .patch(
+          `${baseurl}/gadmin/${state.transactionID}/pending/`,
+          {
+            amountSent: state.amountSent,
+            status: "Completed",
+          },
+
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          body.style.overflow = "";
+          setload(false);
+          toast.success("Transaction completed");
+          fetchPending();
+        })
+        .catch((e) => {
+          console.log(e);
+          body.style.overflow = "";
+          setload(false);
+          toast.error("An error occurred");
+        });
     },
   });
+  console.log(formik.errors);
   return (
     <div>
       {" "}
@@ -80,92 +109,49 @@ const PendingTransactionDetails = () => {
               : "hidden"
           }
         >
-          <div className="flex flex-col items-center px-8 pt-4 bg-[#F8F8FF] rounded-[11.8392px] w-[26rem] h-[24rem]">
-            <p className="text-[#000000] font-semibold text-lg">
-              Accept Transcation
-            </p>
-            <p className="text-xs text-center text-[#000000]  mt-4">
-              By accepting this transaction the user will receive continuation
-              email , payment details and charged service fee below{" "}
-            </p>
-            <span className="flex w-fit mt-8">
-              <span className="relative z-0 ">
-                <select
-                  type="text"
-                  id="sendingcurrency"
-                  className={
-                    formik.errors.sendingcurrency &&
-                    formik.touched.sendingcurrency
-                      ? "  font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins pl-3  pb-0 h-[42px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    //placeholder=" "
-                  }
-                  onChange={formik.handleChange}
-                  value={formik.values.sendingcurrency}
-                  onBlur={formik.handleBlur}
-                  placeholder="receivingcountry"
-                >
-                  <option value="NGN" selected>
-                    NGN
-                  </option>
-
-                  <option value="Pounds">Pounds</option>
-                </select>
-                <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
-              </span>
-              <input
-                type="number"
-                id="amountsent"
-                placeholder="00000"
-                className={
-                  formik.errors.amountsent && formik.touched.amountsent
-                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    : " font-poppins spin-button-none  pl-3 pb-0 h-[42px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                }
-                onChange={formik.handleChange}
-                value={formik.values.amountsent}
-                onBlur={formik.handleBlur}
-              />
-            </span>
-            <div className="flex text-[#F8F8FF] text-xs justify-between w-full mt-8">
-              <button
-                onClick={() => closemodal()}
-                className="w-[10rem] py-3 bg-[#D80010] rounded-lg"
-              >
-                No
-              </button>
-              <button
-                onClick={() => closemodal()}
-                className="w-[10rem] py-3 bg-[#00913E] rounded-lg"
-              >
-                Yes
-              </button>
-            </div>
-          </div>
+          <RingLoader color="#009186" size={90} className="text-3xl" />
         </div>
         <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
           <button
-            onClick={() => navigate("/pending")}
+            onClick={() => navigate(-1)}
             className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
           >
             Back
           </button>
           <div className="flex justify-between text-[#262626] text-sm mt-10">
             <div className="flex  gap-x-20">
-              <p className="">Transaction ID : 1234567890987</p>
-              <p className="font-medium text-[#000000]">Amount: $100</p>
+              <p className="">Transaction ID : {state.transactionID}</p>{" "}
+              <p className="font-medium text-[#000000]">
+                Amount: ${formik.values.amountReceived}
+              </p>
             </div>
-            <p className="ss">Date: 01/01/2023 11:30am</p>
+            <p className="ss">Date: {state.transactionCreatedDate}</p>
           </div>
 
           <div className="flex justify-between  gap-x-[3.9rem] text-sm mt-10 ">
             <div className="flex  gap-x-14">
-              <p className="">Mode of payment: Card Payment</p>
-              <p className="font-medium text-[#000000]">Local Currency: ₦</p>
+              <p className="">Mode of payment: {state.paymentMethod}</p>
+              <p className="font-medium text-[#000000]">
+                Local Currency: ₦ {formik.values.amountsent}
+              </p>
             </div>
             <b className="cc">
               Proof of payment status:{" "}
-              <b className="text-[#D80010]">Not uploaded </b>
+              <b
+                className={
+                  state.paymentMethod == "Bank Transfer"
+                    ? state.paymentProof
+                      ? "text-[#00913E] "
+                      : "text-[#D80010]"
+                    : "text-[#D80010]"
+                }
+              >
+                {state.paymentMethod == "Bank Transfer"
+                  ? state.paymentProof
+                    ? "Uploaded"
+                    : "Not Uploaded"
+                  : "Not Needed"}
+              </b>
             </b>
           </div>
           {/* sdsdsd */}

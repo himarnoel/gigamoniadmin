@@ -39,7 +39,7 @@ const Rejected = () => {
     console.log(item.transactionID);
     window.scroll({ top: 0, left: 0 });
     body.style.overflow = "hidden";
-    load(true);
+    setload(true);
     axios
       .patch(
         `${baseurl}/gadmin/${item.transactionID}/rejected/`,
@@ -57,7 +57,7 @@ const Rejected = () => {
       .then((res) => {
         console.log(res);
         body.style.overflow = "";
-        load(false);
+        setload(false);
 
         toast.success("Accepted successfully");
         //Go back to previous route
@@ -65,7 +65,7 @@ const Rejected = () => {
       .catch((e) => {
         console.log(e.response);
         body.style.overflow = "";
-        load(false);
+        setload(false);
 
         toast.error("An error occurred");
       });

@@ -5,10 +5,12 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { baseurl } from "../Service/Validate";
 import RingLoader from "react-spinners/esm/RingLoader";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const Pending = () => {
   const [showactions, setshowactions] = useState(false);
   const [load, setload] = useState(false);
   const [overlay, setoverlay] = useState(false);
+  const navigate = useNavigate();
   const [data, setdata] = useState([]);
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
@@ -97,7 +99,7 @@ const Pending = () => {
             }
             className="flex flex-col justify-between w-full min-h-[7rem] cursor-pointer pl-4  rounded-lg border-2 border-[#009186]"
           >
-            <div className="grid grid-cols-12 text-sm items-center">
+            <div className="grid grid-cols-12 text-sm items-center cursor-pointer">
               <p className="text-sm text-[#175873] col-span-5">
                 {item.transactionCreatedDate}
               </p>
