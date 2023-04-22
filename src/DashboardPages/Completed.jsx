@@ -10,7 +10,18 @@ const Completed = () => {
   const [showactions, setshowactions] = useState(false);
   const [load, setload] = useState(false);
   const [data, setdata] = useState([]);
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+  };
+  const allowScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "";
+  };
   useEffect(() => {
+    blockScroll();
     setload(true);
     axios
       .get(`${baseurl}/gadmin/completed/`, {
@@ -22,10 +33,12 @@ const Completed = () => {
         console.log(res.data);
         setdata(res.data);
         setload(false);
+        allowScroll();
       })
       .catch((e) => {
         console.log(e);
         setload(false);
+        allowScroll();
       });
   }, []);
   return (
@@ -42,7 +55,7 @@ const Completed = () => {
       <p className="text-2xl font-semibold text-[#175873]">
         Pending Transactions
       </p>
-      <div className="relative w-fit">
+      <div className="relative w-fit z-[1]">
         <input
           type="text rounded"
           placeholder="Search transcations"
