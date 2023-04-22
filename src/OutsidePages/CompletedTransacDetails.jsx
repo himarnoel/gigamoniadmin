@@ -80,10 +80,10 @@ const CompletedTransacDetails = () => {
           >
             Back
           </button>
-          <div className="flex justify-between text-[#262626] text-sm mt-10">
+          <div className="flex justify-between text-[#262626] text-sm  mt-3 sm:mt-10">
             <div className="flex flex-col sm:flex-row sm:gap-x-20">
               <p className="">Transaction ID : {state.transactionID}</p>{" "}
-              <b className="cc">
+              <b className="mt-2 sm:mt-0">
                 Proof of payment status:{" "}
                 <b
                   className={
@@ -104,10 +104,10 @@ const CompletedTransacDetails = () => {
             </div>
           </div>
 
-          <div className="flex justify-between  flex-col sm:flex-row  sm:gap-x-[3.9rem] text-sm mt-10 ">
+          <div className="flex justify-between  flex-col sm:flex-row  sm:gap-x-[3.9rem] text-sm mt-3 sm:mt-10 ">
             <div className="flex  flex-col sm:flex-row  sm:gap-x-14">
               <p className="">Mode of payment: {state.paymentMethod}</p>
-              <p className="ss">Date: {state.transactionCreatedDate}</p>
+              <p className="mt-3 sm:mt-0">Date: {state.transactionCreatedDate}</p>
             </div>
           </div>
           {/* sdsdsd */}
@@ -120,7 +120,7 @@ const CompletedTransacDetails = () => {
            flex flex-col justify-between"
             >
               {" "}
-              <p className="">Sender’s Details</p>
+              <p className="mt-8 sm:mt-0">Sender’s Details</p>
               <div className="relative z-0 mt-0 w-full">
                 <input
                   type="text"
@@ -288,10 +288,10 @@ const CompletedTransacDetails = () => {
               </div>
             </div>
 
-            <div className="h-[35rem]  flex flex-col justify-between w-full mt-5 sm:mt-0">
+            <div className="h-[35rem] mt-10 sm:mt-0  flex flex-col justify-between w-full \">
               {" "}
               <p className="">Receiver's Details</p>
-              <div className="relative z-0 mt-0">
+              <div className="relative z-0 mt-4 sm:mt-0">
                 <input
                   type="text"
                   disabled
