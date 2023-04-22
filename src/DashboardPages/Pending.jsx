@@ -99,9 +99,9 @@ const Pending = () => {
             onClick={() =>
               navigate("/pendingtransactiondetails", { state: item })
             }
-            className="flex flex-col justify-between w-full min-h-[7rem] cursor-pointer px-2 md:pl-4  rounded-lg border-2 border-[#009186]"
+            className="flex flex-col justify-between gap-y-2 md:gap-y-0 w-full min-h-[12rem] md:min-h-[7rem] cursor-pointer px-2 md:px-0 py-2 md:py-0 md:pl-4  rounded-lg border-2 border-[#009186]"
           >
-            <div className="grid md:grid-cols-12 text-sm items-center cursor-pointer">
+            <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center cursor-pointer">
               <p className="text-sm text-[#175873] md:col-span-5">
                 {item.transactionCreatedDate}
               </p>
@@ -110,13 +110,14 @@ const Pending = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-12 text-sm items-center text-[#262626]">
+            <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center text-[#262626]">
               <p className="md:col-span-5">Bank Name: {item.receiverBankName}</p>
               <p className="md:col-span-7">
                 Account number: {item.receiverAcctNo}
               </p>
             </div>
-            <div className="grid md:grid-cols-12 text-sm items-center">
+
+            <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center">
               <p className="md:col-span-5">Payment Method: {item.paymentMethod}</p>
               <p className="text-[#175873] text-lg font-semibold md:col-span-6 w-fit">
                 $ {item.amountReceived}
@@ -125,11 +126,12 @@ const Pending = () => {
                 view
               </p>
             </div>
+            
           </div>
           <div className="relative">
             <button
               onClick={() => completedTransaction(item)}
-              className="text-[#F8F8FF] flex bg-[#009186] px-1 lg:px-16 py-3 rounded-lg items-center text-sm"
+              className="text-[#F8F8FF] flex bg-[#009186] px-4 lg:px-16 py-3 rounded-lg items-center text-sm"
             >
               Done
             </button>

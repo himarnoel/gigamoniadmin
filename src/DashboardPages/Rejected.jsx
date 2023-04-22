@@ -99,29 +99,34 @@ const Rejected = () => {
             onClick={() =>
               navigate("/rejecttransactiondetails", { state: item })
             }
-            className="flex flex-col justify-between w-full min-h-[7rem] cursor-pointer  pl-4  rounded-lg border-2 border-[#009186]"
+            className="flex flex-col justify-between gap-y-2 md:gap-y-0 w-full min-h-[12rem] md:min-h-[7rem] cursor-pointer px-2 md:px-0 py-2 md:py-0 md:pl-4  rounded-lg border-2 border-[#009186]"
           >
-            <div className="grid grid-cols-12 text-sm items-center">
-              <p className="text-sm text-[#175873] col-span-5">
+            <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center cursor-pointer">
+              <p className="text-sm text-[#175873] md:col-span-5">
                 {item.transactionCreatedDate}
               </p>
-              <p className="text-[#175873] font-semibold col-span-7">
+              <p className="text-[#175873] font-semibold md:col-span-7">
                 Account name: {item.receiverAcctName}
               </p>
             </div>
 
-            <div className="grid grid-cols-12 text-sm items-center text-[#262626]">
-              <p className="col-span-5">Bank Name: {item.receiverBankName}</p>
-              <p className="col-span-7">
+            <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center text-[#262626]">
+              <p className="md:col-span-5">
+                Bank Name: {item.receiverBankName}
+              </p>
+              <p className="md:col-span-7">
                 Account number: {item.receiverAcctNo}
               </p>
             </div>
-            <div className="grid grid-cols-12 text-sm items-center">
-              <p className="col-span-5">Payment Method: {item.paymentMethod}</p>
-              <p className="text-[#175873] text-lg font-semibold col-span-6 w-fit">
+
+            <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center">
+              <p className="md:col-span-5">
+                Payment Method: {item.paymentMethod}
+              </p>
+              <p className="text-[#175873] text-lg font-semibold md:col-span-6 w-fit">
                 $ {item.amountReceived}
               </p>
-              <p className="text-[#009186] cursor-pointer  col-span-1 ml-[-10rem]">
+              <p className="text-[#009186] cursor-pointer  col-span-1 md:ml-[-10rem]">
                 view
               </p>
             </div>
