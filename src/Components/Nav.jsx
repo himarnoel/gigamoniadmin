@@ -30,13 +30,13 @@ const Nav = (props) => {
       </div>
       {/* Mobile nav bar */}
 
-      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20  font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[10] rounded-b-lg justify-between">
+      <div className=" fixed top-0  shadow   md:px-12 px-8   font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[10] rounded-b-lg justify-between">
         <Link to="/">
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
         </Link>
 
-        <span className="flex ">
+        <span className="flex justify-between ">
           <button
             onClick={() => navigate("/dashboard")}
             className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7 md:px-[3rem] flex items-center  sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
@@ -46,7 +46,7 @@ const Nav = (props) => {
             Logout
           </button>{" "}
           <HiMenu
-            className="text-black text-xl sm:text-3xl md:text-4xl mr-8"
+            className="text-black text-xl sm:text-3xl md:text-4xl "
             onClick={() => setbool(!bool)}
           />
         </span>
@@ -55,8 +55,8 @@ const Nav = (props) => {
       <div
         className={
           bool
-            ? "h-full w-[20rem] left-0 lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[3] fixed top-0 rounded-b-lg"
-            : "h-full w-[20rem]  left-[-100%] lg:hidden duration-500 ease-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[3] fixed top-0 rounded-b-lg"
+            ? "h-full w-[14rem] md:w-[20rem] left-0 lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[3] fixed top-0 rounded-b-lg"
+            : "h-full  w-[14rem] md:w-[20rem]  left-[-100%] lg:hidden duration-500 ease-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[3] fixed top-0 rounded-b-lg"
         }
       >
         <div className="flex flex-col gap-y-[5rem] mt-40">

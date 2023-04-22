@@ -34,7 +34,9 @@ const Home = (props) => {
   }, []);
 
   return (
-    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
+    <div
+      className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 md:px-12 px-8  `}
+    >
       <div
         className={
           load
@@ -46,7 +48,7 @@ const Home = (props) => {
       </div>
 
       <p className="text-2xl font-semibold text-[#175873]">Activity Overview</p>
-      <div className="flex w-full gap-x-4 mt-8">
+      <div className="flex flex-col gap-y-4  md:flex-row w-full md:gap-x-4 mt-8">
         <div className="rounded-lg bg-[#87ACA3] flex flex-col    pt-10 items-center h-[10rem] w-[20rem] px-2 text-[#F8F8FF]">
           <p className="text-base">Number of Users</p>
           <p className="mt-5 text-4xl font-semibold">{data.noOfUsers}</p>
@@ -64,7 +66,7 @@ const Home = (props) => {
           </p>
         </div>
       </div>
-      <div className="flex mt-10 justify-between w-[37rem] items-center">
+      <div className="flex md:flex-row flex-col mt-10 justify-between md:w-[37rem] h-[10rem] md:h-fit items-start">
         <p className="text-xl font-semibold  cursor-pointer">
           Transaction activities
         </p>
