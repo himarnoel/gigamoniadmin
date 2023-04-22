@@ -75,7 +75,7 @@ const Rejected = () => {
       <div
         className={
           load
-            ? "absolute bg-cover bg-[#262626]/[0.8] top-[-7.2rem] lg:top-[0rem] z-[90] left-0 h-screen w-full flex  justify-center items-center "
+            ? "absolute bg-cover bg-[#262626]/[0.8] top-0  z-[90] left-0 h-screen w-full flex  justify-center items-center "
             : "hidden"
         }
       >

@@ -3,12 +3,18 @@ import logo from "../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
+import { SidebarData } from "../SideNavData/navdata";
+import { NavLink } from "react-router-dom";
 const Nav = (props) => {
   const [bool, setbool] = useState(false);
   const navigate = useNavigate();
+  const activeLink = "mt-5 cursor-pointer text-[#87ACA3] text-sm";
+  const normalLink = "mt-5 cursor-pointer text-[#F8F8FF] text-base";
   return (
     <div className=" font-poppins ">
-      <div className={`${props.class} lg:block hidden  w-full shadow fixed top-0 z-[2]` }>
+      <div
+        className={`${props.class} lg:block hidden  w-full shadow fixed top-0 z-[2]`}
+      >
         <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[5rem] lg:px-10  py-2  mxl:h-[88px] z-40 rounded-b-lg flex justify-between items-center">
           <Link to="/" className="focus:outline-none">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
@@ -29,6 +35,7 @@ const Nav = (props) => {
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
         </Link>
+
         <span className="flex ">
           <button
             onClick={() => navigate("/dashboard")}
@@ -39,24 +46,35 @@ const Nav = (props) => {
             Logout
           </button>{" "}
           <HiMenu
-            className="text-black text-xl sm:text-3xl md:text-4xl"
+            className="text-black text-xl sm:text-3xl md:text-4xl mr-8"
             onClick={() => setbool(!bool)}
           />
         </span>
       </div>
-      {bool ? (
-        <div className="h-[15rem] lg:hidden w-full flex flex-col text-sm sm:text-base items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-[4rem] rounded-b-lg">
-          <Link to="/" onClick={() => setbool(!bool)}>
-            How it works
-          </Link>
-          <Link to="/" onClick={() => setbool(!bool)}>
-            FAQs
-          </Link>
-          <Link to="/login">Login</Link>
+
+      <div
+        className={
+          bool
+            ? "h-full w-[20rem] left-0 lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[90] fixed top-[5.4rem] rounded-b-lg"
+            : "h-full w-[20rem]  left-[-100%] lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[90] fixed top-[5.4rem] rounded-b-lg"
+        }
+      >
+        <div className="flex flex-col gap-y-[5rem] mt-20">
+          {SidebarData.map((data, i) => (
+            <div key={i} className="">
+              <NavLink
+                onClick={() => setbool(false)}
+                to={data.path}
+                className={({ isActive }) =>
+                  isActive ? activeLink : normalLink
+                }
+              >
+                {data.name}
+              </NavLink>
+            </div>
+          ))}
         </div>
-      ) : (
-        ""
-      )}
+      </div>
     </div>
   );
 };

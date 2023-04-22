@@ -13,10 +13,10 @@ const MainPage = () => {
     <div className=" h-screen flex flex-col ">
       <Nav />
       <div className="grid grid-cols-12 flex-auto">
-        <div className="col-span-3  bg-[#175873]">
+        <div className="col-span-0 hidden lg:block lg:col-span-3  bg-[#175873]">
           <SideNav />
         </div>
-        <div className="col-span-9 ">
+        <div className="lg:col-span-9 md:col-span-12">
           <Outlet />
         </div>
       </div>
