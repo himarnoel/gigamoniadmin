@@ -42,7 +42,9 @@ const Completed = () => {
       });
   }, []);
   return (
-    <div className={`font-poppins bg-[#F8F8FF]  h-screen pt-24 px-12 `}>
+    <div
+      className={`font-poppins bg-[#F8F8FF]  md:h-screen pt-24 md:px-12  px-8`}
+    >
       <div
         className={
           load
@@ -53,7 +55,7 @@ const Completed = () => {
         <RingLoader color="#009186" size={90} />
       </div>
       <p className="text-2xl font-semibold text-[#175873]">
-       Completed Transactions
+        Completed Transactions
       </p>
       <div className="relative w-full sm:w-fit ">
         <input
