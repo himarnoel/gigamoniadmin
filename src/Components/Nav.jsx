@@ -30,7 +30,7 @@ const Nav = (props) => {
       </div>
       {/* Mobile nav bar */}
 
-      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20  font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20  font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[10] rounded-b-lg justify-between">
         <Link to="/">
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
@@ -55,11 +55,11 @@ const Nav = (props) => {
       <div
         className={
           bool
-            ? "h-full w-[20rem] left-0 lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[90] fixed top-[5.4rem] rounded-b-lg"
-            : "h-full w-[20rem]  left-[-100%] lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[90] fixed top-[5.4rem] rounded-b-lg"
+            ? "h-full w-[20rem] left-0 lg:hidden duration-500 ease-in-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[3] fixed top-0 rounded-b-lg"
+            : "h-full w-[20rem]  left-[-100%] lg:hidden duration-500 ease-out  flex flex-col text-sm sm:text-base items-center  text-white  bg-[#175873] text-light z-[3] fixed top-0 rounded-b-lg"
         }
       >
-        <div className="flex flex-col gap-y-[5rem] mt-20">
+        <div className="flex flex-col gap-y-[5rem] mt-40">
           {SidebarData.map((data, i) => (
             <div key={i} className="">
               <NavLink
