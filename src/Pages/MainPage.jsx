@@ -10,7 +10,7 @@ const MainPage = () => {
   }, []);
 
   return (
-    <div className=" h-screen flex flex-col w-screen ">
+    <div className=" sm:h-screen flex flex-col w-screen ">
       <Nav />
       <div className="grid grid-cols-12 flex-auto">
         <div className="col-span-0 hidden lg:block lg:col-span-3  bg-[#175873]">

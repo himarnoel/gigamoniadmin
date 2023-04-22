@@ -49,11 +49,11 @@ const Transfer = () => {
       <p className="text-2xl font-semibold text-[#175873]">
         Fund Transfer Requests
       </p>
-      <div className="relative w-fit">
+      <div className="relative w-full sm:w-fit ">
         <input
           type="text rounded"
           placeholder="Search transcations"
-          className="appearance-none focus:ring-0 focus:outline-none py-3 px-2  w-[20rem]    mt-6 rounded-lg border-2 border-[#009186] text-xs"
+          className="appearance-none focus:ring-0 focus:outline-none py-3 px-2 w-full  sm:w-[20rem]    mt-6 rounded-lg border-2 border-[#009186] text-xs"
         />
 
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
