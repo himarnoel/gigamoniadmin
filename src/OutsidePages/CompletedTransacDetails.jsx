@@ -71,10 +71,9 @@ const CompletedTransacDetails = () => {
   return (
     <div>
       {" "}
-      <div className={`font-poppins   `}>
-        <Nav />
-
-        <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
+      <Nav />
+      <div className={`font-poppins   px-8 w-screen sm:w-full`}>
+        <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] sm:px-12 lg:px-10 ">
           <button
             onClick={() => navigate(-1)}
             className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
@@ -82,7 +81,7 @@ const CompletedTransacDetails = () => {
             Back
           </button>
           <div className="flex justify-between text-[#262626] text-sm mt-10">
-            <div className="flex  gap-x-20">
+            <div className="flex flex-col sm:flex-row sm:gap-x-20">
               <p className="">Transaction ID : {state.transactionID}</p>{" "}
               <b className="cc">
                 Proof of payment status:{" "}
@@ -105,8 +104,8 @@ const CompletedTransacDetails = () => {
             </div>
           </div>
 
-          <div className="flex justify-between  gap-x-[3.9rem] text-sm mt-10 ">
-            <div className="flex  gap-x-14">
+          <div className="flex justify-between  flex-col sm:flex-row  sm:gap-x-[3.9rem] text-sm mt-10 ">
+            <div className="flex  flex-col sm:flex-row  sm:gap-x-14">
               <p className="">Mode of payment: {state.paymentMethod}</p>
               <p className="ss">Date: {state.transactionCreatedDate}</p>
             </div>
@@ -114,12 +113,15 @@ const CompletedTransacDetails = () => {
           {/* sdsdsd */}
           <form
             onSubmit={formik.handleSubmit}
-            className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20"
+            className="text-[#262626] text-sm  justify-between  flex flex-col sm:grid sm:mt-10 w-full sm:grid-cols-2  sm:gap-x-24 mb-20"
           >
-            <div className="h-[23.6rem]  flex flex-col justify-between">
+            <div
+              className="h-[23.6rem] w-full
+           flex flex-col justify-between"
+            >
               {" "}
               <p className="">Sender’s Details</p>
-              <div className="relative z-0 mt-0">
+              <div className="relative z-0 mt-0 w-full">
                 <input
                   type="text"
                   disabled
@@ -286,7 +288,7 @@ const CompletedTransacDetails = () => {
               </div>
             </div>
 
-            <div className="h-[35rem]  flex flex-col justify-between">
+            <div className="h-[35rem]  flex flex-col justify-between w-full mt-5 sm:mt-0">
               {" "}
               <p className="">Receiver's Details</p>
               <div className="relative z-0 mt-0">
