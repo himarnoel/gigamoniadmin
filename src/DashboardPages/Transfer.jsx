@@ -59,11 +59,12 @@ const Transfer = () => {
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
       {data.map((item, index) => (
-        <div key={index} className="flex mt-10 gap-x-10  items-center ">
+        <div key={index} className="flex mt-10 gap-x-2 lg:gap-x-20   items-center ">
           <div
             onClick={() => navigate("/transferrequestdetails", { state: item })}
             className="flex flex-col justify-between gap-y-2 md:gap-y-0 w-full min-h-[12rem] md:min-h-[7rem] cursor-pointer px-2 md:px-0 py-2 md:py-0 md:pl-4  rounded-lg border-2 border-[#009186]"
           >
+            
             <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center cursor-pointer">
               <p className="text-sm text-[#175873] md:col-span-5">
                 {item.transactionCreatedDate}
@@ -97,7 +98,7 @@ const Transfer = () => {
           <div className="relative">
             <button
               onClick={() => openUp(index)}
-              className="text-[#F8F8FF] flex bg-[#009186] px-14 py-3 rounded-lg items-center text-sm "
+              className="text-[#F8F8FF] flex bg-[#009186] px-4 sm:px-16 py-3 rounded-lg items-center text-sm "
             >
               <p className="ss"> Action</p>{" "}
               <MdOutlineKeyboardArrowDown className="text-xl" />

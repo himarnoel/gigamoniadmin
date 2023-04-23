@@ -131,7 +131,7 @@ const Pending = () => {
           <div className="relative">
             <button
               onClick={() => completedTransaction(item)}
-              className="text-[#F8F8FF] flex bg-[#009186] px-4 lg:px-16 py-3 rounded-lg items-center text-sm"
+              className="text-[#F8F8FF] flex bg-[#009186] px-4 sm:px-16 py-3 rounded-lg items-center text-sm"
             >
               Done
             </button>
