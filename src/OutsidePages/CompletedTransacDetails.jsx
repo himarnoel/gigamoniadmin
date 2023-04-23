@@ -113,7 +113,7 @@ const CompletedTransacDetails = () => {
           {/* sdsdsd */}
           <form
             onSubmit={formik.handleSubmit}
-            className="text-[#262626] text-sm  justify-between  flex flex-col sm:grid sm:mt-10 w-full sm:grid-cols-2  sm:gap-x-24 mb-20"
+            className="text-[#262626] text-sm  justify-between   sm:grid sm:mt-10 w-full sm:grid-cols-2  sm:gap-x-24 mb-20"
           >
             <div
               className="h-[23.6rem] w-full

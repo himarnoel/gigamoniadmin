@@ -94,7 +94,7 @@ const Rejected = () => {
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
       {data.map((item, i) => (
-        <div key={i} className="flex mt-10 gap-x-20  items-center">
+        <div key={i} className="flex mt-10 gap-x-2 lg:gap-x-20 items-center">
           <div
             onClick={() =>
               navigate("/rejecttransactiondetails", { state: item })
@@ -134,7 +134,7 @@ const Rejected = () => {
           <div className="relative">
             <button
               onClick={() => acceptTransaction(item)}
-              className="bg-[#F8F8FF] flex font-semibold border-2 border-[#009186] text-[#009186] px-16 py-3 rounded-lg items-center text-sm "
+              className="bg-[#F8F8FF] flex font-semibold border-2 border-[#009186] text-[#009186] px-4 sm:px-16 py-3 rounded-lg items-center text-sm "
             >
               Accept
             </button>
