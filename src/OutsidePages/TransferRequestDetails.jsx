@@ -75,34 +75,43 @@ const TransferRequestDetails = () => {
     setoverlay(false);
   };
   const processTransaction = () => {
-    setshow(false);
-    axios
-      .patch(
-        `${baseurl}/gadmin/${state.transactionID}/transaction/`,
-        {
-          amountSent: formik.values.amountsent,
-          status: "Update",
-        },
+    if (formik.values.amountsent <= 500) {
+      setoverlay(false);
+      setshow(false);
+      body.style.overflow = "";
 
-        {
-          headers: {
-            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+      toast.warning("Enter the correct amount");
+      window.scrollBy({ top: 300, left: 0 });
+    } else {
+      setshow(false);
+      axios
+        .patch(
+          `${baseurl}/gadmin/${state.transactionID}/transaction/`,
+          {
+            amountSent: formik.values.amountsent,
+            status: "Update",
           },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        body.style.overflow = "";
-        setoverlay(false);
-        setshow(true);
-        navigate(-1);
-      })
-      .catch((e) => {
-        console.log(e);
-        body.style.overflow = "";
-        setoverlay(false);
-        setshow(true);
-      });
+
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          body.style.overflow = "";
+          setoverlay(false);
+          setshow(true);
+          navigate(-1);
+        })
+        .catch((e) => {
+          console.log(e);
+          body.style.overflow = "";
+          setoverlay(false);
+          setshow(true);
+        });
+    }
   };
   const rejectTransaction = () => {
     window.scroll({ top: 0, left: 0 });
