@@ -111,31 +111,33 @@ const PendingTransactionDetails = () => {
         >
           <RingLoader color="#009186" size={90} className="text-3xl" />
         </div>
-        <div className="pt-24  2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
+        <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 sm:px-12 px-8">
           <button
             onClick={() => navigate(-1)}
             className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
           >
             Back
           </button>
-          <div className="flex justify-between text-[#262626] text-sm mt-10">
-            <div className="flex  gap-x-20">
+          <div className="flex flex-col sm:flex-row justify-between text-[#262626] text-sm mt-10">
+            <div className="flex flex-col sm:flex-row sm:gap-x-20">
               <p className="">Transaction ID : {state.transactionID}</p>{" "}
-              <p className="font-medium text-[#000000]">
+              <p className="font-medium text-[#000000] mt-3 sm:mt-0">
                 Amount: ${formik.values.amountReceived}
               </p>
             </div>
-            <p className="ss">Date: {state.transactionCreatedDate}</p>
+            <p className="mt-3 sm:mt-0">Date: {state.transactionCreatedDate}</p>
           </div>
 
-          <div className="flex justify-between  gap-x-[3.9rem] text-sm mt-10 ">
-            <div className="flex  gap-x-14">
-              <p className="">Mode of payment: {state.paymentMethod}</p>
-              <p className="font-medium text-[#000000]">
+          <div className="flex flex-col sm:flex-row justify-between  gap-x-[3.9rem] text-sm sm:mt-10 ">
+            <div className="flex flex-col sm:flex-row  gap-x-14  ">
+              <p className="mt-3 sm:mt-0">
+                Mode of payment: {state.paymentMethod}
+              </p>
+              <p className="font-medium text-[#000000] mt-3 sm:mt-0">
                 Local Currency: ₦ {formik.values.amountsent}
               </p>
             </div>
-            <b className="cc">
+            <b className="mt-3 sm:mt-0">
               Proof of payment status:{" "}
               <b
                 className={
@@ -157,7 +159,7 @@ const PendingTransactionDetails = () => {
           {/* sdsdsd */}
           <form
             onSubmit={formik.handleSubmit}
-            className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20"
+            className="text-[#262626] text-sm  justify-between sm:grid grid-cols-2 mt-10 gap-x-24 mb-20"
           >
             <div className="h-[28rem]  flex flex-col justify-between">
               {" "}
@@ -335,10 +337,10 @@ const PendingTransactionDetails = () => {
               </button>
             </div>
 
-            <div className="h-[35rem]  flex flex-col justify-between">
+            <div className="h-[35rem]  flex flex-col justify-between mt-10 sm:mt-0">
               {" "}
               <p className="">Receiver's Details</p>
-              <div className="relative z-0 mt-0">
+              <div className="relative z-0 mt-2 sm:mt-0">
                 <input
                   type="text"
                   disabled

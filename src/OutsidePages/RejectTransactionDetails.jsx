@@ -81,17 +81,17 @@ const RejectTransactionDetails = () => {
         >
           <RingLoader color="#009186" size={90} className="text-3xl" />
         </div>
-        <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 ">
+        <div className="pt-24 2xl:px-[10rem] xl:px-[5rem] lg:px-10 sm:px-12  px-8 ">
           <button
             onClick={() => navigate("/rejected")}
             className="px-20 py-3 bg-[#87ACA3] font-semibold text-[#262626] rounded-lg"
           >
             Back
           </button>
-          <div className="flex justify-between text-[#262626] text-sm mt-10">
-            <div className="flex  gap-x-20">
+          <div className="flex flex-col sm:flex-row justify-between text-[#262626] text-sm mt-10">
+            <div className="flex flex-col sm:flex-row gap-x-20">
               <p className="">Transaction ID : 1234567890987</p>{" "}
-              <b className="cc">
+              <b className="mt-3 sm:mt-0">
                 Proof of payment status:{" "}
                 <b
                   className={
@@ -112,16 +112,16 @@ const RejectTransactionDetails = () => {
             </div>
           </div>
 
-          <div className="flex justify-between  gap-x-[3.9rem] text-sm mt-10 ">
-            <div className="flex  gap-x-14">
+          <div className="flex flex-col sm:flex-row  justify-between  gap-x-[3.9rem] text-sm mt-3  sm:mt-10 ">
+            <div className="flex  flex-col sm:flex-row gap-x-14">
               <p className="">Mode of payment: Card Payment</p>
-              <p className="ss">Date: 01/01/2023 11:30am</p>
+              <p className="mt-3 sm:mt-0">Date: 01/01/2023 11:30am</p>
             </div>
           </div>
           {/* sdsdsd */}
           <form
             onSubmit={formik.handleSubmit}
-            className="text-[#262626] text-sm  justify-between grid grid-cols-2 mt-10 gap-x-24 mb-20"
+            className="text-[#262626] text-sm  justify-between sm:grid grid-cols-2 mt-10 gap-x-24 mb-20"
           >
             <div className="h-[28rem]  flex flex-col justify-between">
               {" "}
@@ -299,10 +299,10 @@ const RejectTransactionDetails = () => {
               </button>
             </div>
 
-            <div className="h-[35rem]  flex flex-col justify-between">
+            <div className="h-[35rem]  flex flex-col justify-between mt-10 sm:mt-0">
               {" "}
               <p className="">Receiver's Details</p>
-              <div className="relative z-0 mt-0">
+              <div className="relative z-0 t-2 sm:mt-0">
                 <input
                   type="text"
                   disabled
