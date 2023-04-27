@@ -13,3 +13,166 @@ body{
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+.card {
+  background: linear-gradient(
+    124.14deg,
+    rgba(255, 255, 255, 0.4) 7.39%,
+    rgba(217, 217, 217, 0.1) 79.14%
+  );
+  box-shadow: 0px 2.38886px 14.3332px -0.597215px rgba(0, 145, 134, 0.25);
+  backdrop-filter: blur(8.95822px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+
+
+.-z-1 {
+  z-index: -1;
+}
+
+.origin-0 {
+  transform-origin: 0%;
+}
+
+select:not([value='']):valid ~ label {
+  
+  --tw-translate-x: 0;
+  --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate))
+      skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    --tw-scale-x: 0.75;
+    --tw-scale-y: 0.75;
+    --tw-translate-y: -1.4rem;
+}
+
+select:focus ~ label, select:disabled ~ label{
+    
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate))
+      skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    --tw-scale-x: 0.75;
+    --tw-scale-y: 0.75;
+    --tw-translate-y: -1.4rem;
+}
+
+
+
+select:focus ~ label {
+
+  --tw-text-opacity: 1;
+  color: rgba(0, 0, 0, var(--tw-text-opacity));
+  left: 0px;
+}
+
+.bg{
+  background-image: url(./assets/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.spin-button-none::-webkit-outer-spin-button,
+.spin-button-none::-webkit-inner-spin-button{
+  appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.shade{
+  box-shadow: 0px 3.10952px 3.10952px rgba(255, 255, 255, 0.1);
+}
+
+/* 
+select:disabled{
+  border-color: rgb(255, 255, 255) !important;
+} */
+
+select[disabled] > option {
+  color: graytext;
+  appearance: none;
+  border-color: rgb(255, 255, 255) !important;
+}
+
+
+/* input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+} */
+
+
+input[type=date]:invalid::-webkit-datetime-edit {
+  color: red ;
+}
+
+
+.not{
+  box-shadow: 0px 3.10952px 3.10952px rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+input[type="checkbox"]:checked + label::after {
+  content: '';
+  position: absolute;
+  width: 1.2ex;
+  height: 0.7ex;
+  background: rgba(0, 0, 0, 0);
+  top:1.1ex;
+  left: 0.4ex;
+  border: 2px solid #009186;
+  border-top: none;
+  border-right: none;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  border-width: 2px;
+  border-color: #009186;
+}
+
+input[type="checkbox"] {
+  line-height: 2.1ex;
+  
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+   position: absolute;
+   left: -999em;
+}
+
+input[type="checkbox"] + label {
+   position: relative;
+   overflow: hidden;
+   cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+  content: "";
+  display: inline-block;
+  vertical-align: -25%;
+  height: 2ex;
+  width: 2ex;
+  background-color: white;
+  border: 1px solid rgb(166, 166, 166);
+  border-radius: 4px;
+  margin-right: 0.5em;
+  border-width: 1px;
+  border-color: #009186;
+}

@@ -18,22 +18,27 @@ const Pending = () => {
     fetchPending();
   }, []);
   const fetchPending = () => {
-    setload(true);
-    axios
-      .get(`${baseurl}/gadmin/pending/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setdata(res.data);
-        setload(false);
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-      });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    } else {
+      setload(true);
+      axios
+        .get(`${baseurl}/gadmin/pending/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setdata(res.data);
+          setload(false);
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+        });
+    }
   };
   const completedTransaction = (item) => {
     window.scroll({ top: 0, left: 0 });
@@ -64,7 +69,9 @@ const Pending = () => {
         console.log(e);
         body.style.overflow = "";
         setload(false);
-        toast.error("An error occurred");
+        toast.error("error", {
+          toastId: 1,
+        });
       });
   };
   return (
@@ -111,14 +118,18 @@ const Pending = () => {
             </div>
 
             <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center text-[#262626]">
-              <p className="md:col-span-5">Bank Name: {item.receiverBankName}</p>
+              <p className="md:col-span-5">
+                Bank Name: {item.receiverBankName}
+              </p>
               <p className="md:col-span-7">
                 Account number: {item.receiverAcctNo}
               </p>
             </div>
 
             <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center">
-              <p className="md:col-span-5">Payment Method: {item.paymentMethod}</p>
+              <p className="md:col-span-5">
+                Payment Method: {item.paymentMethod}
+              </p>
               <p className="text-[#175873] text-lg font-semibold md:col-span-6 w-fit">
                 $ {item.amountReceived}
               </p>
@@ -126,7 +137,6 @@ const Pending = () => {
                 view
               </p>
             </div>
-
           </div>
           <div className="relative">
             <button

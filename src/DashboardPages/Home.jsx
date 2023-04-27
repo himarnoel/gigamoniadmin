@@ -4,33 +4,44 @@ import SideNav from "../Components/SideNav";
 import axios from "axios";
 import { baseurl } from "../Service/Validate";
 import RingLoader from "react-spinners/esm/RingLoader";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Home = (props) => {
   const [load, setload] = useState(false);
   const [data, setdata] = useState({});
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
+  const navigate = useNavigate();
   useEffect(() => {
-    window.scroll({ top: 0, left: 0 });
-    body.style.overflow = "hidden";
-    setload(true);
-    axios
-      .get(`${baseurl}/gadmin/summary/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setdata(res.data);
-        setload(false);
-        body.style.overflow = "";
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-        body.style.overflow = "";
-      });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    } else {
+      window.scroll({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
+      setload(true);
+      axios
+        .get(`${baseurl}/gadmin/summary/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setdata(res.data);
+          setload(false);
+          body.style.overflow = "";
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          body.style.overflow = "";
+          toast.error("error", {
+            toastId: 1,
+          });
+        });
+    }
   }, []);
 
   return (

@@ -21,6 +21,10 @@ const Completed = () => {
     body.style.overflow = "";
   };
   useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    }else{
     blockScroll();
     setload(true);
     axios
@@ -39,7 +43,11 @@ const Completed = () => {
         console.log(e);
         setload(false);
         allowScroll();
+        toast.error("error", {
+          toastId: 1,
+        });
       });
+    }
   }, []);
   return (
     <div

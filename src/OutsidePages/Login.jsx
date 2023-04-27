@@ -7,7 +7,8 @@ import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseurl } from "../Service/Validate";
+import { baseurl, loginValidate } from "../Service/Validate";
+import Nav from "../Components/Nav";
 const Login = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
@@ -17,10 +18,8 @@ const Login = () => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (val) {
-      navigate("/dashboard");
-    } else {
-      navigate("/login");
-    }
+      navigate("/home");
+    } 
   }, []);
 
   const formik = useFormik({
@@ -77,10 +76,10 @@ const Login = () => {
         )}
 
         <div className="flex flex-col h-screen  ">
-          <NavBar class="" />
-          <div className="grid md:grid-cols-2  flex-auto ">
+          <Nav class="" />
+          <div className="grid md:grid-cols-2  flex-auto mt-10">
             <div className="w-full flex flex-col  ">
-              <div className="lg:mt-4 xl:mt-5">
+              <div className="lg:mt-4 xl:mt-10">
                 <h2 className="text-center text-[1.5rem] mxl:text-[2rem] mxl:mt-[2rem] font-medium text-[#262626] ">
                   Login
                 </h2>
@@ -196,7 +195,7 @@ const Login = () => {
       </div>
 
       {/* Mobile View */}
-      <dv className="lg:hidden font-poppins">
+      <div className="lg:hidden font-poppins">
         {load ? (
           <div className="absolute bg-cover bg-[#262626]/[0.8] z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={75} />
@@ -205,7 +204,7 @@ const Login = () => {
           ""
         )}
         <div className=" w-screen  flex  flex-col h-screen ">
-          <NavBar className="" />
+          <Nav className="" />
           <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-14 md:px-14  md:flex md:flex-col md:h-full pt-[7rem] pb-10 justify-around">
             <div className="px-5  sm:px-10">
               {" "}
@@ -322,7 +321,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </dv>
+      </div>
     </>
   );
 };

@@ -20,26 +20,31 @@ const CompletedTransacDetails = () => {
   const { body } = safeDocument;
 
   useEffect(() => {
-    console.log(state);
-    window.scroll({ top: 0, left: 0 });
-    formik.setValues({
-      name: "sadfa",
-      email: "sdfad@gmail.com",
-      phoneNumber: "08088443186",
-      address: "dsfa",
-      bvn: "dfasd",
-      amountsent: state.amountReceived ?? "",
-      bankAddress: "sdfad",
-      receivername: state.receiverName ?? "",
-      receiverphoneNumber: state.receiverPhone ?? "",
-      receiveremailAddress: state.receiverEmail ?? "",
-      receiveraccountName: state.receiverAcctName ?? "",
-      receiveraccountNumber: state.receiverAcctNo ?? "",
-      receiverbankName: state.receiverBankName ?? "",
-      receiverbankAddress: state.receiverBankAddress ?? "",
-      receiveriban: state.receiverIban ?? "",
-      receiverswiftCode: state.receiverSwiftCode ?? "",
-    });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    } else {
+      console.log(state);
+      window.scroll({ top: 0, left: 0 });
+      formik.setValues({
+        name: "sadfa",
+        email: "sdfad@gmail.com",
+        phoneNumber: "08088443186",
+        address: "dsfa",
+        bvn: "dfasd",
+        amountsent: state.amountReceived ?? "",
+        bankAddress: "sdfad",
+        receivername: state.receiverName ?? "",
+        receiverphoneNumber: state.receiverPhone ?? "",
+        receiveremailAddress: state.receiverEmail ?? "",
+        receiveraccountName: state.receiverAcctName ?? "",
+        receiveraccountNumber: state.receiverAcctNo ?? "",
+        receiverbankName: state.receiverBankName ?? "",
+        receiverbankAddress: state.receiverBankAddress ?? "",
+        receiveriban: state.receiverIban ?? "",
+        receiverswiftCode: state.receiverSwiftCode ?? "",
+      });
+    }
   }, []);
   const formik = useFormik({
     initialValues: {
@@ -107,7 +112,9 @@ const CompletedTransacDetails = () => {
           <div className="flex justify-between  flex-col sm:flex-row  sm:gap-x-[3.9rem] text-sm mt-3 sm:mt-10 ">
             <div className="flex  flex-col sm:flex-row  sm:gap-x-14">
               <p className="">Mode of payment: {state.paymentMethod}</p>
-              <p className="mt-3 sm:mt-0">Date: {state.transactionCreatedDate}</p>
+              <p className="mt-3 sm:mt-0">
+                Date: {state.transactionCreatedDate}
+              </p>
             </div>
           </div>
           {/* sdsdsd */}

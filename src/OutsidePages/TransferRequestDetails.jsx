@@ -19,27 +19,32 @@ const TransferRequestDetails = () => {
   const { body } = safeDocument;
 
   useEffect(() => {
-    console.log(state);
-    window.scroll({ top: 0, left: 0 });
-    formik.setValues({
-      name: "sadfa",
-      email: "sdfad@gmail.com",
-      phoneNumber: "08088443186",
-      address: "dsfa",
-      bvn: "dfasd",
-      amountsent: state.amountSent ?? "",
-      amountReceived: state.amountReceived ?? "",
-      bankAddress: "sdfad",
-      receivername: state.receiverName ?? "",
-      receiverphoneNumber: state.receiverPhone ?? "",
-      receiveremailAddress: state.receiverEmail ?? "",
-      receiveraccountName: state.receiverAcctName ?? "",
-      receiveraccountNumber: state.receiverAcctNo ?? "",
-      receiverbankName: state.receiverBankName ?? "",
-      receiverbankAddress: state.receiverBankAddress ?? "",
-      receiveriban: state.receiverIban ?? "",
-      receiverswiftCode: state.receiverSwiftCode ?? "",
-    });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    } else {
+      console.log(state);
+      window.scroll({ top: 0, left: 0 });
+      formik.setValues({
+        name: "sadfa",
+        email: "sdfad@gmail.com",
+        phoneNumber: "08088443186",
+        address: "dsfa",
+        bvn: "dfasd",
+        amountsent: state.amountSent ?? "",
+        amountReceived: state.amountReceived ?? "",
+        bankAddress: "sdfad",
+        receivername: state.receiverName ?? "",
+        receiverphoneNumber: state.receiverPhone ?? "",
+        receiveremailAddress: state.receiverEmail ?? "",
+        receiveraccountName: state.receiverAcctName ?? "",
+        receiveraccountNumber: state.receiverAcctNo ?? "",
+        receiverbankName: state.receiverBankName ?? "",
+        receiverbankAddress: state.receiverBankAddress ?? "",
+        receiveriban: state.receiverIban ?? "",
+        receiverswiftCode: state.receiverSwiftCode ?? "",
+      });
+    }
   }, []);
 
   const formik = useFormik({

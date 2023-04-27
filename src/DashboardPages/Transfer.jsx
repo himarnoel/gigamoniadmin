@@ -5,6 +5,7 @@ import { baseurl } from "../Service/Validate";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import RingLoader from "react-spinners/esm/RingLoader";
+import { toast } from "react-toastify";
 const Transfer = () => {
   const [showactions, setshowactions] = useState(false);
   const [load, setload] = useState(false);
@@ -12,22 +13,30 @@ const Transfer = () => {
   const [check, setcheck] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
-    setload(true);
-    axios
-      .get(`${baseurl}/gadmin/request/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setdata(res.data);
-        setload(false);
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-      });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    } else {
+      setload(true);
+      axios
+        .get(`${baseurl}/gadmin/request/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setdata(res.data);
+          setload(false);
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          toast.error("error", {
+            toastId: 1,
+          });
+        });
+    }
   }, []);
   const openUp = (index) => {
     setcheck(index);
@@ -59,12 +68,14 @@ const Transfer = () => {
         <HiOutlineSearch className="text-[#87ACA3] text-xl inset-y-9 right-4 absolute " />
       </div>
       {data.map((item, index) => (
-        <div key={index} className="flex mt-10 gap-x-2 lg:gap-x-20   items-center ">
+        <div
+          key={index}
+          className="flex mt-10 gap-x-2 lg:gap-x-20   items-center "
+        >
           <div
             onClick={() => navigate("/transferrequestdetails", { state: item })}
             className="flex flex-col justify-between gap-y-2 md:gap-y-0 w-full min-h-[12rem] md:min-h-[7rem] cursor-pointer px-2 md:px-0 py-2 md:py-0 md:pl-4  rounded-lg border-2 border-[#009186]"
           >
-            
             <div className="grid gap-y-2 md:gap-y-0 md:grid-cols-12 text-sm items-center cursor-pointer">
               <p className="text-sm text-[#175873] md:col-span-5">
                 {item.transactionCreatedDate}

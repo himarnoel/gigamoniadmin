@@ -17,23 +17,30 @@ const Rejected = () => {
   const [overlay, setoverlay] = useState(false);
   const [data, setdata] = useState([]);
   useEffect(() => {
-    setload(true);
-    axios
-      .get(`${baseurl}/gadmin/rejected/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setdata(res.data);
-        setload(false);
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-        toast.error("error");
-      });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    } else {
+      setload(true);
+      axios
+        .get(`${baseurl}/gadmin/rejected/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setdata(res.data);
+          setload(false);
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          toast.error("error", {
+            toastId: 1,
+          });
+        });
+    }
   }, []);
   const acceptTransaction = (item) => {
     console.log(item.transactionID);
