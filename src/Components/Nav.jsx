@@ -5,11 +5,24 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { SidebarData } from "../SideNavData/navdata";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 const Nav = (props) => {
   const [bool, setbool] = useState(false);
+  const [token, settoken] = useState("");
   const navigate = useNavigate();
   const activeLink = "mt-5 cursor-pointer text-[#87ACA3] text-sm";
   const normalLink = "mt-5 cursor-pointer text-[#F8F8FF] text-base";
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (val) {
+      settoken(val);
+    }
+  }, []);
+
+  const logout = () => {
+    localStorage.removeItem("LoggedIntoken");
+    location.reload();
+  };
   return (
     <div className=" font-poppins ">
       <div
@@ -19,13 +32,16 @@ const Nav = (props) => {
           <Link to="/" className="focus:outline-none">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
           </Link>
-
-          <button
-            onClick={() => navigate("/dashboard")}
-            className="px-[4rem] py-[0.7rem] rounded-lg text-white bg-[#009186] flex items-center"
-          >
-            Logout
-          </button>
+          {token.length != "" ? (
+            <button
+              onClick={() => logout()}
+              className="px-[4rem] py-[0.7rem] rounded-lg text-white bg-[#009186] flex items-center"
+            >
+              Logout
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       {/* Mobile nav bar */}
@@ -37,14 +53,18 @@ const Nav = (props) => {
         </Link>
 
         <span className="flex justify-between ">
-          <button
-            onClick={() => navigate("/dashboard")}
-            className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7 md:px-[3rem] flex items-center  sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
+          {token.length != "" ? (
+            <button
+              onClick={() => logout()}
+              className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7 md:px-[3rem] flex items-center  sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
            rounded-[8px] bg-[#009186]  text-white mr-4"
-          >
-            {" "}
-            Logout
-          </button>{" "}
+            >
+              {" "}
+              Logout
+            </button>
+          ) : (
+            ""
+          )}
           <HiMenu
             className="text-black text-xl sm:text-3xl md:text-4xl "
             onClick={() => setbool(!bool)}
