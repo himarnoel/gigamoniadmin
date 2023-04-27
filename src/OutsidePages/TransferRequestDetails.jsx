@@ -79,7 +79,6 @@ const TransferRequestDetails = () => {
       setoverlay(false);
       setshow(false);
       body.style.overflow = "";
-
       toast.warning("Enter the correct amount");
       window.scrollBy({ top: 300, left: 0 });
     } else {
@@ -146,6 +145,9 @@ const TransferRequestDetails = () => {
         setoverlay(false);
         setshow(true);
         toast.error("error");
+        if (e.data == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+        }
       });
   };
   return (

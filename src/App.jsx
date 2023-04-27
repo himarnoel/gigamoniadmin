@@ -11,8 +11,8 @@ import MainPage from "./Pages/MainPage";
 import Home from "./DashboardPages/Home";
 import PendingTransactionDetails from "./OutsidePages/PendingTransactionDetails";
 import RejectTransactionDetails from "./OutsidePages/RejectTransactionDetails";
-
 import CompletedTransacDetails from "./OutsidePages/CompletedTransacDetails";
+import Login from "./OutsidePages/Login";
 
 function App() {
   useEffect(() => {
@@ -33,6 +33,7 @@ function App() {
           <Route path="/rejected" element={<Rejected />} />
           <Route path="/completed" element={<Completed />} />
         </Route>
+        <Route path="/login" element={<Login />} />
         <Route
           path="/transferrequestdetails"
           element={<TransferRequestDetails />}
