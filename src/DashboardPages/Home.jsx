@@ -34,12 +34,23 @@ const Home = (props) => {
           body.style.overflow = "";
         })
         .catch((e) => {
-          console.log(e);
+          console.log();
           setload(false);
           body.style.overflow = "";
-          toast.error("error", {
-            toastId: 1,
-          });
+          if (
+            e.response.data.detail ==
+            "Authentication credentials not provided for staff account"
+          ) {
+            toast.warning("Login with Admin details", {
+              toastId: 1,
+            });
+            localStorage.removeItem("LoggedIntoken");
+            navigate("/login");
+          } else {
+            toast.error("error", {
+              toastId: 2,
+            });
+          }
         });
     }
   }, []);
