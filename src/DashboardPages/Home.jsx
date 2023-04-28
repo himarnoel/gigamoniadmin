@@ -41,7 +41,7 @@ const Home = (props) => {
             e.response.data.detail ==
             "Authentication credentials not provided for staff account"
           ) {
-            toast.warning("Login with Admin details", {
+            toast.warning("Login with admin details", {
               toastId: 1,
             });
             localStorage.removeItem("LoggedIntoken");
