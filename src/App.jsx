@@ -18,7 +18,6 @@ function App() {
   return (
     <div>
       <ToastContainer position="top-center" autoClose={2000} />
-      <Route path="/" element={<Login />} />
       <Routes>
         <Route element={<MainPage />}>  
           <Route path="/home" element={<Home />} />
@@ -27,7 +26,7 @@ function App() {
           <Route path="/rejected" element={<Rejected />} />
           <Route path="/completed" element={<Completed />} />
         </Route>
-       
+        <Route path="/" element={<Login />} />
         <Route
           path="/transferrequestdetails"
           element={<TransferRequestDetails />}
