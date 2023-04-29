@@ -46,14 +46,14 @@ const Home = (props) => {
             });
             localStorage.removeItem("LoggedIntoken");
             navigate("/login");
-          } else if (e.response.data.detail == "") {
-            toast.error("Session Expired, login again", {
+          } else if (e.response.data.detail == "Invalid token.") {
+            toast.warning("Session Expired, login again", {
               toastId: 2,
             });
             localStorage.removeItem("LoggedIntoken");
             navigate("/login");
           } else {
-            toast.error("error", {
+            toast.error("An error occured", {
               toastId: 3,
             });
           }
