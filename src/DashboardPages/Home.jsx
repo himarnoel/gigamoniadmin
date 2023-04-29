@@ -34,7 +34,7 @@ const Home = (props) => {
           body.style.overflow = "";
         })
         .catch((e) => {
-          console.log();
+          console.log(e);
           setload(false);
           body.style.overflow = "";
           if (
@@ -46,9 +46,15 @@ const Home = (props) => {
             });
             localStorage.removeItem("LoggedIntoken");
             navigate("/login");
+          } else if (e.response.data.detail == "") {
+            toast.error("Session Expired, login again", {
+              toastId: 2,
+            });
+            localStorage.removeItem("LoggedIntoken");
+            navigate("/login");
           } else {
             toast.error("error", {
-              toastId: 2,
+              toastId: 3,
             });
           }
         });
