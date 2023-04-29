@@ -19,7 +19,8 @@ function App() {
     <div>
       <ToastContainer position="top-center" autoClose={2000} />
       <Routes>
-        <Route element={<MainPage />}>
+        <Route element={<MainPage />}>  
+        
           <Route path="/home" element={<Home />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/pending" element={<Pending />} />
