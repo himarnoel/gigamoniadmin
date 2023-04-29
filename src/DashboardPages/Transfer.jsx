@@ -124,7 +124,9 @@ const Transfer = () => {
               }
             >
               <p
-                onClick={() => setshowactions(!showactions)}
+                onClick={() =>
+                  navigate("/transferrequestdetails", { state: item })
+                }
                 className="text-[#00913E] cursor-pointer font-semibold"
               >
                 Accept
