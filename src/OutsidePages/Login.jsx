@@ -15,7 +15,6 @@ const Login = () => {
   const [load, setload] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    localStorage.removeItem("LoggedIntoken");
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (val) {
