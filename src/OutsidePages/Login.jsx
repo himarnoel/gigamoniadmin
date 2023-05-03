@@ -40,22 +40,22 @@ const Login = () => {
           console.log(res);
           setload(false);
           localStorage.setItem("LoggedIntoken", res.data.tokens.toString());
-          navigate("/dashboard");
+          navigate("/home");
         })
         .catch((e) => {
           console.log(e);
           setload(false);
           if (e.response.data.detail == "Account has not been verified") {
             toast.error("Account has not been verified");
-            navigate("/check");
+            navigate("/");
           } else if (
             e.response.data.detail == "Phone number has not been verified"
           ) {
             toast.error("Account has not been verified");
 
-            navigate(
-              `/verify?id=${e.response.data.id}&key=${e.response.data.key}`
-            );
+            // navigate(
+            //   `/verify?id=${e.response.data.id}&key=${e.response.data.key}`
+            // );
           } else if (e.response.data == "User does not exist") {
             toast.error("Invalid user");
           } else {

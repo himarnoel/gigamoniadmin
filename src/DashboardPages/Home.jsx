@@ -45,13 +45,13 @@ const Home = (props) => {
               toastId: 1,
             });
             localStorage.removeItem("LoggedIntoken");
-            navigate("/login");
+            navigate("/");
           } else if (e.response.data.detail == "Invalid token.") {
             toast.warning("Session Expired, login again", {
               toastId: 2,
             });
             localStorage.removeItem("LoggedIntoken");
-            navigate("/login");
+            navigate("/");
           } else {
             toast.error("An error occured", {
               toastId: 3,
