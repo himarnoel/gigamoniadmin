@@ -51,7 +51,7 @@ const Home = (props) => {
               toastId: 2,
             });
             localStorage.removeItem("LoggedIntoken");
-            navigate("/");
+            navigate("/login");
           } else {
             toast.error("An error occured", {
               toastId: 3,

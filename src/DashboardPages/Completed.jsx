@@ -24,29 +24,34 @@ const Completed = () => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/login");
-    }else{
-    blockScroll();
-    setload(true);
-    axios
-      .get(`${baseurl}/gadmin/completed/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setdata(res.data);
-        setload(false);
-        allowScroll();
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-        allowScroll();
-        toast.error("error", {
-          toastId: 1,
+    } else {
+      blockScroll();
+      setload(true);
+      axios
+        .get(`${baseurl}/gadmin/completed/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setdata(res.data);
+          setload(false);
+          allowScroll();
+          if (res.data.length == 0) {
+            toast.info("No Completed Trasaction", {
+              toastId: 1,
+            });
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          allowScroll();
+          toast.error("error", {
+            toastId: 2,
+          });
         });
-      });
     }
   }, []);
   return (

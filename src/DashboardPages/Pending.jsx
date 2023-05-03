@@ -33,6 +33,9 @@ const Pending = () => {
           console.log(res.data);
           setdata(res.data);
           setload(false);
+          if (res.data.length == 0) {
+            toast.info("No Pending Transaction");
+          }
         })
         .catch((e) => {
           console.log(e);

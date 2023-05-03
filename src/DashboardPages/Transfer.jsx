@@ -28,6 +28,10 @@ const Transfer = () => {
           console.log(res.data);
           setdata(res.data);
           setload(false);
+
+          if (res.data.length == 0) {
+            toast.info("No Transfer Request");
+          }
         })
         .catch((e) => {
           console.log(e);
