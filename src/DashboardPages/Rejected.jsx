@@ -33,14 +33,16 @@ const Rejected = () => {
           setdata(res.data);
           setload(false);
           if (res.data.length == 0) {
-            toast.info("No Pending Transaction");
+            toast.info("No Rejected Transaction",{
+              toastId: 1,
+            });
           }
         })
         .catch((e) => {
           console.log(e);
           setload(false);
           toast.error("error", {
-            toastId: 1,
+            toastId: 2,
           });
         });
     }

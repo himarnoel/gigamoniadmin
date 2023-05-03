@@ -30,14 +30,16 @@ const Transfer = () => {
           setload(false);
 
           if (res.data.length == 0) {
-            toast.info("No Transfer Request");
+            toast.info("No Transfer Request", {
+              toastId: 1,
+            });
           }
         })
         .catch((e) => {
           console.log(e);
           setload(false);
           toast.error("error", {
-            toastId: 1,
+            toastId: 2,
           });
         });
     }
