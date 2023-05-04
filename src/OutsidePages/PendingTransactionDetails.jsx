@@ -26,11 +26,11 @@ const PendingTransactionDetails = () => {
       console.log(state);
       window.scroll({ top: 0, left: 0 });
       formik.setValues({
-        name: "sadfa",
-        email: "sdfad@gmail.com",
-        phoneNumber: "08088443186",
-        address: "dsfa",
-        bvn: "dfasd",
+        name: state.senderName,
+        email: state.senderEmail,
+        phoneNumber: state.senderPhoneNumber,
+        address: "address",
+        bvn: "1234567890",
         amountsent: state.amountSent ?? "",
         amountReceived: state.amountReceived,
         bankAddress: "sdfad",
