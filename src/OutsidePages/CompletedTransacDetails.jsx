@@ -33,7 +33,7 @@ const CompletedTransacDetails = () => {
         address: "address",
         bvn: "1234567890",
         amountsent: state.amountReceived ?? "",
-        bankAddress: "sdfad",
+        bankAddress: "Dummy address",
         receivername: state.receiverName ?? "",
         receiverphoneNumber: state.receiverPhone ?? "",
         receiveremailAddress: state.receiverEmail ?? "",
